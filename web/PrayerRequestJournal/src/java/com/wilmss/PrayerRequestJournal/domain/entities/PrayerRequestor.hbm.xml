@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 10, 2012 3:29:34 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.wilmss.PrayerRequestJournal.domain.entities.PrayerRequestor" schema="PADMIN" table="PRAYER_REQUESTOR">
+    <id name="requestorId" type="int">
+      <column name="REQUESTOR_ID" not-null="true"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string">
+      <column length="200" name="NAME" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="200" name="EMAIL" not-null="true"/>
+    </property>
+    <property name="password" type="string">
+      <column length="50" name="PASSWORD" not-null="true"/>
+    </property>
+    <property name="lastLogonDate" type="date">
+      <column length="10" name="LAST_LOGON_DATE"/>
+    </property>
+    <property name="lastLogonTime" type="time">
+      <column length="8" name="LAST_LOGON_TIME"/>
+    </property>
+    <property name="isactive" type="java.lang.Integer">
+      <column name="ISACTIVE"/>
+    </property>
+    <property name="isadmin" type="java.lang.Integer">
+      <column name="ISADMIN"/>
+    </property>
+    <property name="username" type="string">
+      <column length="100" name="USERNAME"/>
+    </property>
+    
+    
+    <set name="requests" table="PRAYER_REQUEST" inverse="true" lazy="true" fetch="select">
+        <key>
+            <column name="REQUESTOR_ID" not-null="true" />
+        </key>
+        <one-to-many class="com.wilmss.PrayerRequestJournal.domain.entities.PrayerRequest" />
+    </set>
+    
+    
+    <!--
+    <list name="requests" table="prayerRequest"
+        inverse="false" cascade="all">
+        <key column="REQUESTOR_ID"/>
+        <list-index column="idx" />
+        <one-to-many class="com.wilmss.PrayerRequestJournal.domain.entities.PrayerRequest" />
+    </list>
+    -->
+  </class>
+</hibernate-mapping>

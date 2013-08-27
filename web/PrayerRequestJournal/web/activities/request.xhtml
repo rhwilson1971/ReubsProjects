@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <!-- doesn't work! -->
+    <h:head>
+        
+        <title>Prayer Request :: Submit, Wait, Respond </title>
+    </h:head>
+    
+    <h:body>
+        
+        <ui:composition template="../template/common/commonLayout.xhtml">
+        
+            <ui:define name="center-content">
+    
+                <f:metadata>
+                    <f:viewParam name="id" value="#{sprBean.requestId}"/>
+                    <f:viewParam name="rid" value="#{sprBean.requestorId}" />
+                </f:metadata>
+            
+                <h2>Prayer Request</h2>
+                
+                <h:form>
+                    <h:outputLabel value="Prayer Request Title" />
+                    <br />
+                    <h:inputText 
+                        id="request-title"
+                        styleClass="prayer-request-title"
+                        value="#{sprBean.title}"
+                        required="true"
+                        requiredMessage="Need prayer request title"
+                        />
+                    <h:message for="request-title" styleClass="request-title-error"/>
+                    <br /><br />
+                    <h:outputLabel value="Prayer Request Details" />
+                    <br />
+                    <h:inputTextarea 
+                        id="request-body"
+                        styleClass="prayer-request-text"
+                        value="#{sprBean.request}"
+                        required="true"
+                        requiredMessage="Add prayer request"
+                        />
+                    <h:message for="request-body"  styleClass="request-body-error"/>
+                    <br /><br />
+                    <h:commandButton value="Save" 
+                                    action="#{sprBean.save}">
+                    </h:commandButton>
+                    
+                    <h:link styleClass="back-to-requests" outcome="index"  >
+                        Back to Requests
+                    </h:link>
+                        
+                    
+                </h:form>    
+                <hr />
+                
+                <h:panelGroup id="response" rendered="#{sprBean.requestId > 0}">
+                    <h2>Prayer Response</h2>
+                    <h:form>
+                            <h:selectOneMenu value="#{sprBean.disposition}">
+                                <f:selectItems value="#{sprBean.dispositionList}" />
+                            </h:selectOneMenu>
+                         
+                        
+                        <h:commandButton action="#{sprBean.updateResponse}" value="Update Response"  styleClass="responsebutton"/>
+                    </h:form>
+                </h:panelGroup>
+        
+            </ui:define>
+            
+            <ui:define name="left-content">
+                
+                <div id="left-content">
+                    
+                    <div id="left-content-body">
+                        &quot;For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and
+                        not of evil, to give you an expected end.&quot;
+                        <br /><br />
+                        <p>Jeremiah 29:11 King James Version</p>
+
+                        <br />
+                        <br />
+                        
+                        <h1>Keep on Praying!</h1>
+                        
+                        
+                        
+                        <br />
+                    
+                    </div>
+                    
+                </div>
+                
+            </ui:define>
+            
+        </ui:composition>
+    </h:body>
+</html>
+

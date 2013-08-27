@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Prayer Request :: Submit, Wait, Respond </title>
+        <script type="text/javascript" src="jwplayer/jwplayer.js" />
+        <script src="http://yui.yahooapi.com/3.7.3/build/yui/yui-min.js"></script>
+        
+    </h:head>
+    
+    <h:body>
+        
+        <ui:composition template="template/common/commonLayout.xhtml" >
+            
+            <ui:define name="center-content">
+                
+                <h:outputScript name="scripts/jwplayer/jwplayer.js"/>
+                <script src="http://yui.yahooapi.com/3.7.3/build/yui/yui-min.js"></script>
+                
+                <h2>#{msg1.applicationMessage}</h2>
+
+                <p> Prayer Request Journal is a site dedicated to those who simply want to stretch their faith, by publicly 
+                    submitting their prayer requests.  Come back whenever you like and see how God has answered
+                    the prayers of other individuals.  Whether its a testimony of overcoming any addictions, 
+                    receiving blessings when helping others.  Or simply encouragement in just having just one more
+                    day on this earth.  Be assured, God hears all your prayers!</p>
+
+                <p>He who did not spare His own Son, but delivered Him up for us all, how shall He not with Him also freely
+                give us all things?  Romans 8:32</p>
+
+                <h2>Todays Words of Encouragement</h2>
+                <p>But Jesus, looked at them and said, "With men it is impossible, but not with God; 
+                   for with God all things are possible.  Mark 10:26 NKJV</p>
+
+                <h2>Friends, we must have faith!</h2>
+                <p>Afterward the disciples asked Jesus privately, &quot;Why couldn't we cast out that demon?"</p>
+                <p>You don't have enough faith,&quot; Jesus told them. &quot;I tell you the truth, if you had 
+                    faith even as small as a mustard seed, you could say to this mountain &sbquo;Move from here
+                    to there;&sbquo; and it would move.  Nothing would be impossible.&quot; Matthew 17:12,20</p>
+
+                <div id="videoContainer">Loading the player ... </div>
+
+                <script type="text/javascript">
+                    jwplayer("videoContainer").setup({
+                        flashplayer: "jwplayer/player.swf",
+                        file: "1-77java.mp4",
+                        height: 270,
+                        width: 480
+                    });
+                </script>
+            </ui:define>
+
+            <ui:define name="left-content">
+                <div id="prayer-requests">
+                <h2>
+                    <h:outputLink value="activities/request.jsf?id=-1&amp;rid=#{prjBean.requestorId}" styleClass="add-new">
+                        <img src="images/plus30x30.png" border="2" alt="Add new request" />
+                    </h:outputLink>                    
+                    Your Requests
+                </h2>
+
+                <div id="prayer-request-info">
+
+                    <ul class="last">
+                        <c:forEach var="r" items="#{prjBean.requests}">
+                            <li>
+                                <h:outputLink value="activities/request.jsf?id=#{r.requestId}&amp;rid=#{r.prayerRequestor.requestorId}">#{r.title}</h:outputLink>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

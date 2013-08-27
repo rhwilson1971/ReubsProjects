@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3389" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="PrayerRequest" representedClassName="PrayerRequest" syncable="YES">
+        <attribute name="dateAnswered" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateRequested" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="requestor" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PrayerRequestor" inverseName="requests" inverseEntity="PrayerRequestor" syncable="YES"/>
+        <relationship name="responses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PrayerResponse" inverseName="request" inverseEntity="PrayerResponse" syncable="YES"/>
+    </entity>
+    <entity name="PrayerRequestor" representedClassName="PrayerRequestor" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isAdmin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestorId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="requests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PrayerRequest" inverseName="requestor" inverseEntity="PrayerRequest" syncable="YES"/>
+    </entity>
+    <entity name="PrayerResponse" representedClassName="PrayerResponse" syncable="YES">
+        <attribute name="dateEntered" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="disposition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="response" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="responseId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="request" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PrayerRequest" inverseName="responses" inverseEntity="PrayerRequest" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PrayerRequest" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PrayerRequestor" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PrayerResponse" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

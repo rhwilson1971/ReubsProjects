@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 10, 2012 3:29:34 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.wilmss.PrayerRequestJournal.domain.entities.PrayerRequest" schema="PADMIN" table="PRAYER_REQUEST">
+    <id name="requestId" type="int">
+      <column name="REQUEST_ID" not-null="true"/>
+      <generator class="identity"/>
+    </id>
+    <property name="request" type="string">
+      <column length="500" name="REQUEST" not-null="true"/>
+    </property>
+    <property name="requestDate" type="date">
+      <column length="10" name="REQUEST_DATE" not-null="true"/>
+    </property>
+    <property name="requestTime" type="time">
+      <column length="8" name="REQUEST_TIME" not-null="true"/>
+    </property>
+    <property name="title" type="string">
+      <column length="100" name="TITLE"/>
+    </property>
+    
+    <!--
+    <property name="requestorId" type="java.lang.Integer">
+        <column name="REQUESTOR_ID" not-null="true"/>
+    </property>
+    -->
+    
+    <many-to-one name="prayerRequestor" class="com.wilmss.PrayerRequestJournal.domain.entities.PrayerRequestor" fetch="select">
+        <column name="REQUESTOR_ID" not-null="true" />
+    </many-to-one>        
+  </class>
+</hibernate-mapping>

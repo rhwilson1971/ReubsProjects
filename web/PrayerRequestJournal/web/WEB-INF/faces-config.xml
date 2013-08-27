@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+   version="2.0">
+
+    <application>
+        <resource-bundle>
+            <base-name>messages</base-name>
+            <var>msg1</var>
+        </resource-bundle>
+    </application>
+
+  <managed-bean>
+    <managed-bean-name>prjBean</managed-bean-name>
+    <managed-bean-class>com.wilmss.PrayerRequestJournal.controller.PrayerRequestJournalBean</managed-bean-class>
+  
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <managed-bean>
+    <managed-bean-name>sprBean</managed-bean-name>
+    <managed-bean-class>com.wilmss.PrayerRequestJournal.controller.ShowPrayerRequestBean</managed-bean-class>
+  
+    <managed-bean-scope>session</managed-bean-scope></managed-bean>
+
+    <managed-bean>
+    <managed-bean-name>nuBean</managed-bean-name>
+    <managed-bean-class>com.wilmss.PrayerRequestJournal.controller.NewUserBean</managed-bean-class>
+  
+    <managed-bean-scope>request</managed-bean-scope></managed-bean>
+  
+    <navigation-rule>
+        <navigation-case>
+            <description>Go to home page</description>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.jsf</to-view-id>
+            <redirect /> 
+        </navigation-case>
+        
+        <navigation-case>
+            <description>Go to home page</description>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/users/sign-in.jsf</to-view-id>
+        </navigation-case>        
+        
+        <navigation-case>
+            <description>Go to home page</description>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/users/register.jsf</to-view-id>
+        </navigation-case>               
+        
+        <navigation-case>
+            <description>yeah</description>
+            <from-outcome>index2</from-outcome>
+            <to-view-id>/index.jsf</to-view-id>
+            <redirect /> 
+        </navigation-case>
+        
+        <navigation-case>
+            <description>sign out</description>
+            <from-outcome>signout</from-outcome>
+            <to-view-id>/index.jsf</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <description>Update Response</description>
+            <from-outcome>response2</from-outcome>
+            <to-view-id>/activities/response.jsf</to-view-id>
+            <redirect />
+        </navigation-case>       
+        
+        <navigation-case>
+            <description>Go back to the request page, since session, bean contains last item</description>
+            <from-outcome>last-request</from-outcome>
+            <to-view-id>/activities/request.jsf</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+    </navigation-rule>
+  
+  
+</faces-config>

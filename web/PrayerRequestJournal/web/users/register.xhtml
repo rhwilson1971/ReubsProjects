@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+    
+    <h:head>
+        <title>Prayer Request :: Submit, Wait, Respond </title>
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            
+            #sign-up {
+                width: 500px;
+                border: burlywood thin solid;
+                margin: auto; /* auto matically adjust to size of enclosing tag */
+            }
+            
+            #sign-up-action {
+                width: 50%;
+                float: right;
+            }
+            
+            #sign-up-action input {
+                width: 75px;
+            }
+            
+            #sign-up-action a {
+                margin-left: 10px;
+                border-left: black inset thin;
+                padding-left: 10px;
+            }
+            
+        </style>
+    </h:head>
+    
+    <h:body>
+        <div id="wrapper">
+            
+            <div id="header">
+                <h2>Prayer Request Journal</h2>
+            </div>
+            
+            <div id="main">
+                
+                <h2>Rester with Prayer Request Journal</h2>
+                <div id="sign-up">
+                <h:form>
+                    <table>
+                        <tr>
+                            <td><h:outputText value="User name" styleClass="label"/></td>
+                            <td><h:inputText value="#{nuBean.requestor.name}" styleClass="uname"/></td>
+                        </tr>
+						
+                        <tr>
+                            <td><h:outputText value="Name" styleClass="label"/></td>
+                            <td><h:inputText value="#{nuBean.requestor.name}" /></td>
+                        </tr>
+						
+                        <tr>
+                            <td><h:outputText value="Email Address" styleClass="label" /></td>
+                            <td><h:inputText value="#{nuBean.requestor.email}" /></td>
+                        </tr>
+						
+                        <tr>
+                            <td><h:outputText value="Password" styleClass="label" /></td>
+                            <td><h:inputText value="#{nuBean.passwordHelper.password}" /></td>
+                        </tr>                    
+                        
+                        <tr>
+                            <td><h:outputText value="Confirm Password" styleClass="label" /></td>
+                            <td><h:inputText value="#{nuBean.passwordHelper.passwordConfirm}" /> </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2">
+                                <div id="sign-up-action">
+                                    <h:commandButton value="Register" action="#{nuBean.register}" />
+                                    <h:link value="Cancel" outcome="index" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+                </div>
+            </div>
+            
+            <div id="footer">
+                
+            </div>
+            
+        </div>
+    </h:body>
+</html>
+

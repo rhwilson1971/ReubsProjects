@@ -1,0 +1,234 @@
+/* 
+    Document   : styles
+    Created on : Apr 8, 2012, 2:11:39 PM
+    Author     : rhwilson2
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+html, body, h1, h2, h3, h4, h5, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote{
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+table {border-collapse: collapse; border-spacing: 0;}
+td, th, caption {font-weight: normal; text-align: left;}
+img, fieldset {border: 0;}
+ol{padding-left: 1.4em; list-style: decimal;}
+ul{padding-left: 1.4em; list-style: square;}
+q:before, q:after { content:'';}
+/* end reset */
+
+
+#wrapper {
+    width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden; /* contain float */
+
+    background-color: #FFF;
+    background-image: url('../../images/bg_main_hand.jpg');
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+#main{
+    float: right;
+    width: 565px;
+    margin-right: 15px;
+    padding-top: 25px;
+}
+
+* html #main {
+    display: inline; /* ie 6 double margin bug */
+}
+
+body{
+    background-image: url('../../images/bg_page.png');
+    background-repeat: repeat-x;
+    background-color: #FFF;
+}
+
+#footer{
+    clear: both;
+    font: bold 12px Tahoma, Geneva, sans-serif;
+    color: #65747E;
+    padding: 5px;
+    margin: 0 15px;
+    border: 1px dotted #98AFBE;
+    border-left: none;
+    border-right: none;
+}
+
+#header h1 {
+    font: normal 48px Georgia, "Times New Roman", Times, Serif;
+    text-align: right;
+    color: #272D32;
+}
+
+#main h2{
+    font: 24px Tahoma, Geneva, sans-serif;
+    margin-bottom: 15px;
+    font-family: Tahoma, Geneva, sans-serif;
+    
+    background-image: url('../../images/underline.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom: 7px;
+}
+
+#main p{
+    font: 14px Tahoma, Geneva, sans-serif;
+    color: #323A3F;
+    margin-bottom: 20px;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+#prayer-requests{
+    margin-right: 600px;
+    margin-left: 20px;
+    
+    margin-top: 230px;
+    background: url('../../images/scroll_middle.jpg') repeat-y center top;
+    zoom: 1;    /* ie 6 & 7 layout bug */
+}
+
+#prayer-requests h2{
+    font: italic bold normal 20px Georgia, "Times New Roman", Times, serif;
+    text-align: center;
+    color: #323A3F;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    
+    background: url('../../images/scroll_top.jpg') no-repeat center top;
+    padding-top: 70px;
+    
+}
+
+#prayer-requests h3{
+    padding-left: 25px;
+    margin-left: 30px;
+}
+
+#prayer-requests ul{
+    font: 14px Tahoma, Geneva, sans-serif;
+}
+
+#prayer-requests li {
+    list-style: none;
+    background-image: url('../../images/bullet.png');
+    background-repeat: no-repeat;
+    background-position: 0 4px;
+    padding-left: 25px;
+    margin-bottom: 7px;
+
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+#prayer-requests table
+{
+    margin-left: 52px;
+}
+
+#prayer-requests .last {
+    background: url('../../images/scroll_bottom.jpg') no-repeat center bottom;
+    padding-bottom: 65px;
+}
+
+#main .prayer-request-title {
+    width: 200px;
+}
+
+#main .prayer-request-text {
+    width: 400px;
+    height: 300px;
+}
+
+#logged-in-user{
+    margin-top: 24px;
+    border: activecaption solid thin;
+    width: 50%;
+    float: right;
+}
+
+#logged-in-user .login {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#logged-in-user .register {
+    margin-right: 5px;
+    padding-left: 5px;
+    border-left: activeborder inset thin;
+}
+
+#request-nav{
+   margin-top: 15px;
+}
+
+#request-nav .previous{
+    margin-left: 50px;
+}
+
+#request-nav .add-new{
+    margin-left: 35px;
+    padding-left: 10px;
+}
+
+#response {
+      margin-top: 20px;
+  }
+			
+#update-response select {
+        width: 200px;
+        margin-right: 20px;
+}
+
+#update-response input {
+        margin-right: 10px;
+}
+            
+.responsebutton {
+    margin-left: 15px;
+}
+
+.request-body-error {
+    color: red;
+}
+
+.request-title-error {
+    color: red;
+    margin-left: 200px;
+}
+
+.back-to-requests{
+    margin-left: 15px;
+}
+
+#left-content{
+    margin-right: 600px;
+    margin-left: 20px;
+    background: url('../../images/wholescroll.png') no-repeat top center;
+    
+    margin-top: 230px;
+    zoom: 1;    /* ie 6 & 7 layout bug */
+}
+
+#left-content-body {
+    padding-top: 70px;
+    padding-left: 50px;
+    padding-right: 25px;
+}
+
+#current-response a{
+                    padding: 5px;
+            }
+
+#current-response textarea {
+    width: 500px;
+    height: 200px;
+}

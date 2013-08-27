@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+        <title>Prayer Request :: Submit, Wait, Respond </title>
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />        
+    </h:head>
+    
+    <style type="text/css">
+        
+    </style>
+    <h:body>
+        
+        <div id="wrapper">
+            
+            <div id="header">
+                <h1>#{msg.applicationTitle}</h1>
+            </div>
+            
+            <div id="main">
+                <h2>Sign into Prayer Request Journal</h2>
+            <h:form>
+                
+                <h:panelGrid id="sign-in-form" columns="2" border="1">
+                    <f:facet name="header">
+                        <h:outputText value="Enter sign on infomation" />
+                    </f:facet>
+                    
+                    <h:outputText value="User name"/>
+                    <h:inputText value="#{prjBean.userName}" />
+
+                    <h:outputText value="Password" />
+                    <h:inputSecret value="#{prjBean.password}" />
+                </h:panelGrid>
+                
+                <h:outputText value="#{prjBean.validationMessage}" rendered="#{prjBean.validationMessage.length()>0}" />
+                
+                <br/>
+                <h:commandButton value="Login" action="#{prjBean.login()}" />
+                <h:link value="Register" outcome="register" />
+                
+            </h:form>
+                
+                <br/>
+                <p>Enter you login information to get all the benefits of using the the Prayer Request Journal</p>
+                
+            </div>
+        </div>
+    </h:body>
+</html>
+

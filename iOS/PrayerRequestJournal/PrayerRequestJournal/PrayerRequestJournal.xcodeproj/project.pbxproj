@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE180FD516644D4C006C2270 /* prj-flame57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = CE180FD216644D4C006C2270 /* prj-flame57x57.png */; };
+		CE180FD616644D4C006C2270 /* prj-flame114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = CE180FD316644D4C006C2270 /* prj-flame114x114.png */; };
+		CE180FD716644D4C006C2270 /* prj-flame144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = CE180FD416644D4C006C2270 /* prj-flame144x144.png */; };
+		CE21A35017CAD94300578E3C /* PRJMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE21A34E17CAD94300578E3C /* PRJMyInfoViewController.m */; };
+		CE21A35117CAD94300578E3C /* PRJMyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE21A34F17CAD94300578E3C /* PRJMyInfoViewController.xib */; };
+		CE2461361638ED5C00029A38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2461351638ED5C00029A38 /* UIKit.framework */; };
+		CE2461381638ED5C00029A38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2461371638ED5C00029A38 /* Foundation.framework */; };
+		CE24613A1638ED5C00029A38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2461391638ED5C00029A38 /* CoreGraphics.framework */; };
+		CE2461401638ED5C00029A38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE24613E1638ED5C00029A38 /* InfoPlist.strings */; };
+		CE2461421638ED5C00029A38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2461411638ED5C00029A38 /* main.m */; };
+		CE2461461638ED5C00029A38 /* PRJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2461451638ED5C00029A38 /* PRJAppDelegate.m */; };
+		CE2461481638ED5C00029A38 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2461471638ED5C00029A38 /* Default.png */; };
+		CE24614A1638ED5C00029A38 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2461491638ED5C00029A38 /* Default@2x.png */; };
+		CE24614C1638ED5C00029A38 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE24614B1638ED5C00029A38 /* Default-568h@2x.png */; };
+		CE24614F1638ED5C00029A38 /* PRJAllRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24614E1638ED5C00029A38 /* PRJAllRequestsViewController.m */; };
+		CE2461511638ED5C00029A38 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2461501638ED5C00029A38 /* first.png */; };
+		CE2461531638ED5C00029A38 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2461521638ED5C00029A38 /* first@2x.png */; };
+		CE2461561638ED5C00029A38 /* PRJNewRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2461551638ED5C00029A38 /* PRJNewRequestViewController.m */; };
+		CE2461581638ED5C00029A38 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2461571638ED5C00029A38 /* second.png */; };
+		CE24615A1638ED5C00029A38 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2461591638ED5C00029A38 /* second@2x.png */; };
+		CE24615D1638ED5D00029A38 /* PRJAllRequestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE24615B1638ED5D00029A38 /* PRJAllRequestsViewController.xib */; };
+		CE2461601638ED5D00029A38 /* PRJNewRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE24615E1638ED5D00029A38 /* PRJNewRequestViewController.xib */; };
+		CE24616B1638EE6200029A38 /* PRJDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE2461691638EE6200029A38 /* PRJDataModel.xcdatamodeld */; };
+		CE415B1816421273007F6AD8 /* PrayerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE415B1716421273007F6AD8 /* PrayerResponse.m */; };
+		CE415B1B16421283007F6AD8 /* PrayerRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE415B1A16421283007F6AD8 /* PrayerRequestor.m */; };
+		CE415B1E1642128F007F6AD8 /* PrayerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE415B1D1642128F007F6AD8 /* PrayerRequest.m */; };
+		CE415B62164220FB007F6AD8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE415B61164220FB007F6AD8 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		CE420C8416506E4400471F90 /* PRJShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE420C8216506E4400471F90 /* PRJShareViewController.m */; };
+		CE420C891650749B00471F90 /* share30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = CE420C871650749B00471F90 /* share30x30.png */; };
+		CE420C8A1650749B00471F90 /* share60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = CE420C881650749B00471F90 /* share60x60.png */; };
+		CE7CFCB5166D796500FD6BDA /* KeyboardToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */; };
+		CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE180FD216644D4C006C2270 /* prj-flame57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prj-flame57x57.png"; sourceTree = "<group>"; };
+		CE180FD316644D4C006C2270 /* prj-flame114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prj-flame114x114.png"; sourceTree = "<group>"; };
+		CE180FD416644D4C006C2270 /* prj-flame144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prj-flame144x144.png"; sourceTree = "<group>"; };
+		CE21A34D17CAD94300578E3C /* PRJMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRJMyInfoViewController.h; path = ../PRJMyInfoViewController.h; sourceTree = "<group>"; };
+		CE21A34E17CAD94300578E3C /* PRJMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRJMyInfoViewController.m; path = ../PRJMyInfoViewController.m; sourceTree = "<group>"; };
+		CE21A34F17CAD94300578E3C /* PRJMyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PRJMyInfoViewController.xib; path = ../PRJMyInfoViewController.xib; sourceTree = "<group>"; };
+		CE21A35317CAE78F00578E3C /* myinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myinfo.png; sourceTree = "<group>"; };
+		CE2461311638ED5C00029A38 /* PrayerRequestJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrayerRequestJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2461351638ED5C00029A38 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE2461371638ED5C00029A38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2461391638ED5C00029A38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CE24613D1638ED5C00029A38 /* PrayerRequestJournal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrayerRequestJournal-Info.plist"; sourceTree = "<group>"; };
+		CE24613F1638ED5C00029A38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE2461411638ED5C00029A38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE2461431638ED5C00029A38 /* PrayerRequestJournal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PrayerRequestJournal-Prefix.pch"; sourceTree = "<group>"; };
+		CE2461441638ED5C00029A38 /* PRJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRJAppDelegate.h; sourceTree = "<group>"; };
+		CE2461451638ED5C00029A38 /* PRJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRJAppDelegate.m; sourceTree = "<group>"; };
+		CE2461471638ED5C00029A38 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CE2461491638ED5C00029A38 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CE24614B1638ED5C00029A38 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE24614D1638ED5C00029A38 /* PRJAllRequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRJAllRequestsViewController.h; sourceTree = "<group>"; };
+		CE24614E1638ED5C00029A38 /* PRJAllRequestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRJAllRequestsViewController.m; sourceTree = "<group>"; };
+		CE2461501638ED5C00029A38 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		CE2461521638ED5C00029A38 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		CE2461551638ED5C00029A38 /* PRJNewRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRJNewRequestViewController.m; sourceTree = "<group>"; };
+		CE2461571638ED5C00029A38 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		CE2461591638ED5C00029A38 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		CE24615C1638ED5D00029A38 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PRJAllRequestsViewController.xib; sourceTree = "<group>"; };
+		CE24615F1638ED5D00029A38 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PRJNewRequestViewController.xib; sourceTree = "<group>"; };
+		CE24616A1638EE6200029A38 /* PRJDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PRJDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CE415B1616421273007F6AD8 /* PrayerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrayerResponse.h; path = ../PrayerResponse.h; sourceTree = "<group>"; };
+		CE415B1716421273007F6AD8 /* PrayerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrayerResponse.m; path = ../PrayerResponse.m; sourceTree = "<group>"; };
+		CE415B1916421283007F6AD8 /* PrayerRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrayerRequestor.h; path = ../PrayerRequestor.h; sourceTree = "<group>"; };
+		CE415B1A16421283007F6AD8 /* PrayerRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrayerRequestor.m; path = ../PrayerRequestor.m; sourceTree = "<group>"; };
+		CE415B1C1642128F007F6AD8 /* PrayerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrayerRequest.h; path = ../PrayerRequest.h; sourceTree = "<group>"; };
+		CE415B1D1642128F007F6AD8 /* PrayerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrayerRequest.m; path = ../PrayerRequest.m; sourceTree = "<group>"; };
+		CE415B61164220FB007F6AD8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CE420C8116506E4400471F90 /* PRJShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRJShareViewController.h; path = ../PRJShareViewController.h; sourceTree = "<group>"; };
+		CE420C8216506E4400471F90 /* PRJShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRJShareViewController.m; path = ../PRJShareViewController.m; sourceTree = "<group>"; };
+		CE420C871650749B00471F90 /* share30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share30x30.png; sourceTree = "<group>"; };
+		CE420C881650749B00471F90 /* share60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share60x60.png; sourceTree = "<group>"; };
+		CE420C8C1651DADF00471F90 /* PRJNewRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRJNewRequestViewController.h; sourceTree = "<group>"; };
+		CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardToolbarView.xib; sourceTree = "<group>"; };
+		CE8A8AD016435DA0008A1594 /* PRJDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRJDataAccess.h; sourceTree = "<group>"; };
+		CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRJDataAccess.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE24612E1638ED5C00029A38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE415B62164220FB007F6AD8 /* CoreData.framework in Frameworks */,
+				CE2461361638ED5C00029A38 /* UIKit.framework in Frameworks */,
+				CE2461381638ED5C00029A38 /* Foundation.framework in Frameworks */,
+				CE24613A1638ED5C00029A38 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE2461261638ED5C00029A38 = {
+			isa = PBXGroup;
+			children = (
+				CE24613B1638ED5C00029A38 /* PrayerRequestJournal */,
+				CE2461341638ED5C00029A38 /* Frameworks */,
+				CE2461321638ED5C00029A38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE2461321638ED5C00029A38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE2461311638ED5C00029A38 /* PrayerRequestJournal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE2461341638ED5C00029A38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE415B61164220FB007F6AD8 /* CoreData.framework */,
+				CE2461351638ED5C00029A38 /* UIKit.framework */,
+				CE2461371638ED5C00029A38 /* Foundation.framework */,
+				CE2461391638ED5C00029A38 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE24613B1638ED5C00029A38 /* PrayerRequestJournal */ = {
+			isa = PBXGroup;
+			children = (
+				CE415B1F1642129C007F6AD8 /* Model */,
+				CE2461661638ED9900029A38 /* Controllers */,
+				CE2461671638EDC400029A38 /* Images */,
+				CE2461681638EDD300029A38 /* Views */,
+				CE24613C1638ED5C00029A38 /* Supporting Files */,
+			);
+			path = PrayerRequestJournal;
+			sourceTree = "<group>";
+		};
+		CE24613C1638ED5C00029A38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE24613D1638ED5C00029A38 /* PrayerRequestJournal-Info.plist */,
+				CE24613E1638ED5C00029A38 /* InfoPlist.strings */,
+				CE2461411638ED5C00029A38 /* main.m */,
+				CE2461431638ED5C00029A38 /* PrayerRequestJournal-Prefix.pch */,
+				CE2461471638ED5C00029A38 /* Default.png */,
+				CE2461491638ED5C00029A38 /* Default@2x.png */,
+				CE24614B1638ED5C00029A38 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE2461661638ED9900029A38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE21A34D17CAD94300578E3C /* PRJMyInfoViewController.h */,
+				CE21A34E17CAD94300578E3C /* PRJMyInfoViewController.m */,
+				CE2461441638ED5C00029A38 /* PRJAppDelegate.h */,
+				CE2461451638ED5C00029A38 /* PRJAppDelegate.m */,
+				CE24614D1638ED5C00029A38 /* PRJAllRequestsViewController.h */,
+				CE24614E1638ED5C00029A38 /* PRJAllRequestsViewController.m */,
+				CE420C8C1651DADF00471F90 /* PRJNewRequestViewController.h */,
+				CE2461551638ED5C00029A38 /* PRJNewRequestViewController.m */,
+				CE420C8116506E4400471F90 /* PRJShareViewController.h */,
+				CE420C8216506E4400471F90 /* PRJShareViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CE2461671638EDC400029A38 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CE180FD216644D4C006C2270 /* prj-flame57x57.png */,
+				CE21A35317CAE78F00578E3C /* myinfo.png */,
+				CE180FD316644D4C006C2270 /* prj-flame114x114.png */,
+				CE180FD416644D4C006C2270 /* prj-flame144x144.png */,
+				CE420C871650749B00471F90 /* share30x30.png */,
+				CE420C881650749B00471F90 /* share60x60.png */,
+				CE2461501638ED5C00029A38 /* first.png */,
+				CE2461521638ED5C00029A38 /* first@2x.png */,
+				CE2461571638ED5C00029A38 /* second.png */,
+				CE2461591638ED5C00029A38 /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CE2461681638EDD300029A38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE21A34F17CAD94300578E3C /* PRJMyInfoViewController.xib */,
+				CE24615B1638ED5D00029A38 /* PRJAllRequestsViewController.xib */,
+				CE24615E1638ED5D00029A38 /* PRJNewRequestViewController.xib */,
+				CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CE415B1F1642129C007F6AD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */,
+				CE8A8AD016435DA0008A1594 /* PRJDataAccess.h */,
+				CE415B1C1642128F007F6AD8 /* PrayerRequest.h */,
+				CE415B1D1642128F007F6AD8 /* PrayerRequest.m */,
+				CE415B1916421283007F6AD8 /* PrayerRequestor.h */,
+				CE415B1A16421283007F6AD8 /* PrayerRequestor.m */,
+				CE2461691638EE6200029A38 /* PRJDataModel.xcdatamodeld */,
+				CE415B1616421273007F6AD8 /* PrayerResponse.h */,
+				CE415B1716421273007F6AD8 /* PrayerResponse.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE2461301638ED5C00029A38 /* PrayerRequestJournal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2461631638ED5D00029A38 /* Build configuration list for PBXNativeTarget "PrayerRequestJournal" */;
+			buildPhases = (
+				CE24612D1638ED5C00029A38 /* Sources */,
+				CE24612E1638ED5C00029A38 /* Frameworks */,
+				CE24612F1638ED5C00029A38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrayerRequestJournal;
+			productName = PrayerRequestJournal;
+			productReference = CE2461311638ED5C00029A38 /* PrayerRequestJournal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE2461281638ED5C00029A38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PRJ;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Reuben Wilson";
+				TargetAttributes = {
+					CE2461301638ED5C00029A38 = {
+						DevelopmentTeam = L7SR7PM49F;
+					};
+				};
+			};
+			buildConfigurationList = CE24612B1638ED5C00029A38 /* Build configuration list for PBXProject "PrayerRequestJournal" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CE2461261638ED5C00029A38;
+			productRefGroup = CE2461321638ED5C00029A38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE2461301638ED5C00029A38 /* PrayerRequestJournal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE24612F1638ED5C00029A38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2461401638ED5C00029A38 /* InfoPlist.strings in Resources */,
+				CE2461481638ED5C00029A38 /* Default.png in Resources */,
+				CE24614A1638ED5C00029A38 /* Default@2x.png in Resources */,
+				CE21A35117CAD94300578E3C /* PRJMyInfoViewController.xib in Resources */,
+				CE24614C1638ED5C00029A38 /* Default-568h@2x.png in Resources */,
+				CE2461511638ED5C00029A38 /* first.png in Resources */,
+				CE2461531638ED5C00029A38 /* first@2x.png in Resources */,
+				CE2461581638ED5C00029A38 /* second.png in Resources */,
+				CE24615A1638ED5C00029A38 /* second@2x.png in Resources */,
+				CE24615D1638ED5D00029A38 /* PRJAllRequestsViewController.xib in Resources */,
+				CE2461601638ED5D00029A38 /* PRJNewRequestViewController.xib in Resources */,
+				CE420C891650749B00471F90 /* share30x30.png in Resources */,
+				CE420C8A1650749B00471F90 /* share60x60.png in Resources */,
+				CE180FD516644D4C006C2270 /* prj-flame57x57.png in Resources */,
+				CE180FD616644D4C006C2270 /* prj-flame114x114.png in Resources */,
+				CE180FD716644D4C006C2270 /* prj-flame144x144.png in Resources */,
+				CE7CFCB5166D796500FD6BDA /* KeyboardToolbarView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE24612D1638ED5C00029A38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2461421638ED5C00029A38 /* main.m in Sources */,
+				CE2461461638ED5C00029A38 /* PRJAppDelegate.m in Sources */,
+				CE24614F1638ED5C00029A38 /* PRJAllRequestsViewController.m in Sources */,
+				CE2461561638ED5C00029A38 /* PRJNewRequestViewController.m in Sources */,
+				CE24616B1638EE6200029A38 /* PRJDataModel.xcdatamodeld in Sources */,
+				CE415B1816421273007F6AD8 /* PrayerResponse.m in Sources */,
+				CE415B1B16421283007F6AD8 /* PrayerRequestor.m in Sources */,
+				CE21A35017CAD94300578E3C /* PRJMyInfoViewController.m in Sources */,
+				CE415B1E1642128F007F6AD8 /* PrayerRequest.m in Sources */,
+				CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */,
+				CE420C8416506E4400471F90 /* PRJShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CE24613E1638ED5C00029A38 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE24613F1638ED5C00029A38 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CE24615B1638ED5D00029A38 /* PRJAllRequestsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE24615C1638ED5D00029A38 /* en */,
+			);
+			name = PRJAllRequestsViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE24615E1638ED5D00029A38 /* PRJNewRequestViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE24615F1638ED5D00029A38 /* en */,
+			);
+			name = PRJNewRequestViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE2461611638ED5D00029A38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE2461621638ED5D00029A38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE2461641638ED5D00029A38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PrayerRequestJournal/PrayerRequestJournal-Prefix.pch";
+				INFOPLIST_FILE = "PrayerRequestJournal/PrayerRequestJournal-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CE2461651638ED5D00029A38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PrayerRequestJournal/PrayerRequestJournal-Prefix.pch";
+				INFOPLIST_FILE = "PrayerRequestJournal/PrayerRequestJournal-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE24612B1638ED5C00029A38 /* Build configuration list for PBXProject "PrayerRequestJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2461611638ED5D00029A38 /* Debug */,
+				CE2461621638ED5D00029A38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2461631638ED5D00029A38 /* Build configuration list for PBXNativeTarget "PrayerRequestJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2461641638ED5D00029A38 /* Debug */,
+				CE2461651638ED5D00029A38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE2461691638EE6200029A38 /* PRJDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE24616A1638EE6200029A38 /* PRJDataModel.xcdatamodel */,
+			);
+			currentVersion = CE24616A1638EE6200029A38 /* PRJDataModel.xcdatamodel */;
+			name = PRJDataModel.xcdatamodeld;
+			path = ../PRJDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CE2461281638ED5C00029A38 /* Project object */;
+}
