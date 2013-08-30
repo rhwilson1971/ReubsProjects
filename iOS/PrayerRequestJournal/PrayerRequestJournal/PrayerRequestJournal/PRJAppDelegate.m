@@ -24,7 +24,6 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    
     // Override point for customization after application launch.
     PRJAllRequestsViewController *vcRequests =
         [[PRJAllRequestsViewController alloc] initWithNibName:@"PRJAllRequestsViewController" bundle:nil];
@@ -46,8 +45,6 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = tabBarControllers;
-    
-    NSManagedObjectContext *moc = self.managedObjectContext;
     
     vcRequests.managedObjectContext = self.managedObjectContext;
     vcRequest.managedObjectContext = self.managedObjectContext;

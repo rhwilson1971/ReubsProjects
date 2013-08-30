@@ -56,6 +56,9 @@
     requestTitle.text = @"Prayer Request Title";
     requestDetail.text = @"Prayer Request";
     
+    requestDetail.delegate = self;
+    requestTitle.delegate = self;
+    
     scrollView.scrollEnabled = YES;
     
     [self registerForKeyboardNotifications];
@@ -70,8 +73,11 @@
 - (void)cancel:(id)sender
 {
     NSLog(@"Cancel pressed");
+    
+    [activeField resignFirstResponder];
 }
 
+    
 - (void)save:(id)sender
 {
     
@@ -115,6 +121,11 @@
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
+    
+
+    
+    //[activeField setInputAccessoryView:toolbar];
+    /*
     NSDictionary* info = [aNotification userInfo];
     
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -135,7 +146,7 @@
     {
         CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y-kbSize.height);
         [scrollView setContentOffset:scrollPoint animated:YES];
-    }
+    }*/
 }
 
 -(void)keyboardWillBeHidden:(NSNotification *)aNotification
@@ -149,6 +160,25 @@
 {
     activeField = textField;
     
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    [toolbar sizeToFit];
+    
+    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    UIBarButtonItem *detailsButton = [[UIBarButtonItem alloc] initWithTitle:@"Details" style:UIBarButtonItemStylePlain target:self action:@selector(resignFirstResponder)];
+                                      
+                                      
+    
+    
+    
+    UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
+    
+    NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, detailsButton, doneButton, nil];
+    
+    [toolbar setItems:itemsArray];
+    
+    [textField setInputAccessoryView:toolbar];
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField
