@@ -13,6 +13,7 @@
 #import "PRJNewRequestViewController.h"
 #import "PRJShareViewController.h"
 #import "PRJMyInfoViewController.h"
+#import "PRJNewRequestViewController1.h"
 
 @implementation PRJAppDelegate
 
@@ -28,8 +29,8 @@
     PRJAllRequestsViewController *vcRequests =
         [[PRJAllRequestsViewController alloc] initWithNibName:@"PRJAllRequestsViewController" bundle:nil];
     
-    PRJNewRequestViewController *vcRequest =
-        [[PRJNewRequestViewController alloc] initWithNibName:@"PRJNewRequestViewController" bundle:nil];
+    PRJNewRequestViewController1 *vcRequest =
+        [[PRJNewRequestViewController1 alloc] initWithNibName:@"PRJNewRequestViewController1" bundle:nil];
     PRJShareViewController *vcShare =
         [[PRJShareViewController alloc] initWithNibName:@"PRJShareViewController" bundle:nil];
     PRJMyInfoViewController *vcInfo =

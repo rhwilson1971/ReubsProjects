@@ -39,6 +39,8 @@
 		CE420C8A1650749B00471F90 /* share60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = CE420C881650749B00471F90 /* share60x60.png */; };
 		CE7CFCB5166D796500FD6BDA /* KeyboardToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */; };
 		CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */; };
+		CEAA631D17D50BF40047B528 /* PRJNewRequestViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */; };
+		CEAA631E17D50BF40047B528 /* PRJNewRequestViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,9 @@
 		CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardToolbarView.xib; sourceTree = "<group>"; };
 		CE8A8AD016435DA0008A1594 /* PRJDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRJDataAccess.h; sourceTree = "<group>"; };
 		CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRJDataAccess.m; sourceTree = "<group>"; };
+		CEAA631A17D50BF40047B528 /* PRJNewRequestViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRJNewRequestViewController1.h; path = ../PRJNewRequestViewController1.h; sourceTree = "<group>"; };
+		CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRJNewRequestViewController1.m; path = ../PRJNewRequestViewController1.m; sourceTree = "<group>"; };
+		CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PRJNewRequestViewController1.xib; path = ../PRJNewRequestViewController1.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +170,8 @@
 				CE21A34E17CAD94300578E3C /* PRJMyInfoViewController.m */,
 				CE2461441638ED5C00029A38 /* PRJAppDelegate.h */,
 				CE2461451638ED5C00029A38 /* PRJAppDelegate.m */,
+				CEAA631A17D50BF40047B528 /* PRJNewRequestViewController1.h */,
+				CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */,
 				CE24614D1638ED5C00029A38 /* PRJAllRequestsViewController.h */,
 				CE24614E1638ED5C00029A38 /* PRJAllRequestsViewController.m */,
 				CE420C8C1651DADF00471F90 /* PRJNewRequestViewController.h */,
@@ -196,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				CE21A34F17CAD94300578E3C /* PRJMyInfoViewController.xib */,
+				CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */,
 				CE24615B1638ED5D00029A38 /* PRJAllRequestsViewController.xib */,
 				CE24615E1638ED5D00029A38 /* PRJNewRequestViewController.xib */,
 				CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */,
@@ -290,6 +298,7 @@
 				CE420C891650749B00471F90 /* share30x30.png in Resources */,
 				CE420C8A1650749B00471F90 /* share60x60.png in Resources */,
 				CE180FD516644D4C006C2270 /* prj-flame57x57.png in Resources */,
+				CEAA631E17D50BF40047B528 /* PRJNewRequestViewController1.xib in Resources */,
 				CE180FD616644D4C006C2270 /* prj-flame114x114.png in Resources */,
 				CE180FD716644D4C006C2270 /* prj-flame144x144.png in Resources */,
 				CE7CFCB5166D796500FD6BDA /* KeyboardToolbarView.xib in Resources */,
@@ -313,6 +322,7 @@
 				CE21A35017CAD94300578E3C /* PRJMyInfoViewController.m in Sources */,
 				CE415B1E1642128F007F6AD8 /* PrayerRequest.m in Sources */,
 				CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */,
+				CEAA631D17D50BF40047B528 /* PRJNewRequestViewController1.m in Sources */,
 				CE420C8416506E4400471F90 /* PRJShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

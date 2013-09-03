@@ -168,13 +168,11 @@
     
     UIBarButtonItem *detailsButton = [[UIBarButtonItem alloc] initWithTitle:@"Details" style:UIBarButtonItemStylePlain target:self action:@selector(resignFirstResponder)];
                                       
-                                      
-    
-    
-    
+    UIBarButtonItem *titleButton = [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self
+                                                                    action:@selector(resignFirstResponder)];
     UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
     
-    NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, detailsButton, doneButton, nil];
+    NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, titleButton, detailsButton, doneButton, nil];
     
     [toolbar setItems:itemsArray];
     
