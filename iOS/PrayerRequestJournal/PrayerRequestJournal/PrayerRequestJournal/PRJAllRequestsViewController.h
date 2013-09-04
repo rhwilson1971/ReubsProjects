@@ -10,7 +10,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface PRJAllRequestsViewController : UITableViewController{
+@interface PRJAllRequestsViewController : UITableViewController {
     NSMutableArray *prayerRequests;
 }
 
