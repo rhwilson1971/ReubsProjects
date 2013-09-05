@@ -68,6 +68,7 @@
 
 #pragma mark - Actions handled by this controller
 
+// Method called when the user presses the save button
 - (void) save:(id)sender{
 
     [activeInputView resignFirstResponder];
@@ -92,6 +93,7 @@
         [prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
     
         [moc save:&error];
+		
         if(nil != error)
         {
             NSLog(@"Error occurred saving prayer request");
@@ -132,7 +134,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    int previousTag = textField.tag;
+    int previousTag = textField.tag; // current field
     
     if( previousTag == kRequestTitleTag)
     {
@@ -143,16 +145,11 @@
     return YES;
 }
 
-
-
 #pragma mark - TextView delegate methods
 
 -(void) textViewDidBeginEditing:(UITextView *)textView{
     NSLog(@"textView did begin editing");
     activeInputView=textView;
-    
-
-    
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView
@@ -163,25 +160,25 @@
 
 #pragma mark - Table view data source & delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{    
-    return 2;
+    return kInputSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 1;
+    return kInputRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath{
     
     NSInteger section = [indexPath section];
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PrayerRequestCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-        if( 0 == section){
+        if( kRequestTitleSection == section){
             
             UITextField * requestTitle = [[UITextField alloc] initWithFrame:CGRectMake(5,5,290,30)];
             
@@ -196,7 +193,8 @@
             [cell.contentView addSubview:requestTitle];
             
         }
-        if( 1 == section){
+		
+        if( kRequestDetailSection == section){
             
             UITextView * requestDetails = [[UITextView alloc] initWithFrame:CGRectMake(5,5,290,100)];
             
@@ -232,17 +230,11 @@
     
     CGFloat cellHeight = 40.0;
     
-    if( [indexPath section] == 1 ){
+    if( [indexPath section] == kRequestDetailSection ){
         cellHeight = 200.0;
     }
     
     return cellHeight;
-}
-
-NSIndexPath *currentSelection;
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    currentSelection = indexPath;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -250,10 +242,10 @@ NSIndexPath *currentSelection;
     NSString *sectionName;
     switch (section)
     {
-        case 0:
+        case kRequestTitleSection:
             sectionName = NSLocalizedString(@"Prayer Request Title", @"Prayer Request Title");
             break;
-        case 1:
+        case kRequestDetailSection:
             sectionName = NSLocalizedString(@"Prayer Request Details", @"Prayer Request Details");
             break;
             // ...

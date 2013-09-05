@@ -10,6 +10,9 @@
 #import "PrayerRequestor.h"
 
 @interface PRJMyInfoViewController ()
+{
+	UITextField *activeField;
+}
 
 @end
 
@@ -20,6 +23,7 @@
 @synthesize LastName;
 @synthesize Email;
 
+#pragma mark UIViewController methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -64,13 +68,14 @@
     if([items count] != 0)
     {
         NSManagedObject *prayerRequestor = [items objectAtIndex:0];
-        
         FirstName.text = [prayerRequestor valueForKey:@"FirstName"];
-         
         LastName.text = [prayerRequestor valueForKey:@"LastName"];
-        
         Email.text = [prayerRequestor valueForKey:@"Email"];
     }
+	
+	FirstName.tag = kFirstNameTag;
+	LastName.tag = kLastNameTag;
+	Email.tag = kEmailNameTag;
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +84,39 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)save:(id)sender{
+#pragma mark UITextFieldDelegate
+-(void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    activeField=textField;
+	
+	switch(textField.tag)
+	{
+		case kLastNameTag:
+		break;
+		
+		case kLastNameTag:
+		break;
+		
+		case kEmailNameTag:
+		breka;
+	}
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField
+{
+    activeField=nil;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return YES;
+}
+
+#pragma mark Action methods
+
+-(void)save:(id)sender
+{
+	[activeField resignFirstResponder];
 
     NSManagedObjectContext *moc = [self managedObjectContext];
     
@@ -94,6 +131,7 @@
     
     NSArray * items = [moc executeFetchRequest:request error:&error];
     NSManagedObject *prayerRequestor;
+	
     if(nil != error)
     {
         NSLog(@"Error occurred fetching prayer requestor");
@@ -113,6 +151,7 @@
     [prayerRequestor setValue:Email.text forKey:@"Email"];
     
     [moc save:&error];
+	
     if(nil != error)
     {
         NSLog(@"Error occurred saving prayer request");
@@ -120,8 +159,7 @@
     
 	NSLog(@"Save button pressed");
     
-    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@   "OK", nil];
-    
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"My Informatio Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@   "OK", nil];
     [view show];
 
     view = nil;
