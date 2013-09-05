@@ -1,5 +1,5 @@
 //
-//  PRJFirstViewController.h
+//  PRJAllRequestsViewController.h
 //  PrayerRequestJournal
 //
 //  Created by Reuben Wilson on 10/24/12.
@@ -15,5 +15,5 @@
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @end

@@ -16,7 +16,6 @@
 
 @end
 
-
 @implementation PRJMyInfoViewController
 @synthesize managedObjectContext;
 @synthesize FirstName;
@@ -30,7 +29,7 @@
     if (self) {
         // Custom initialization
         
-            self.title = NSLocalizedString(@"My Info", @"My Info");
+            self.title = NSLocalizedString(@"My Information", @"My Information");
             // self.tabBarItem.image = [UIImage imageNamed:@"myinfo"];
             self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
@@ -44,14 +43,12 @@
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain
                                                                   target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;
-    
     // get existing requestor
     
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSError *error = nil;
     
-    NSEntityDescription *entityDescription =
-    [NSEntityDescription entityForName:@"PrayerRequestor" inManagedObjectContext:moc];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PrayerRequestor" inManagedObjectContext:moc];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(LastName="];

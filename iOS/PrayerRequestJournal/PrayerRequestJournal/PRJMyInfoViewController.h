@@ -12,13 +12,12 @@
 #define kLastNameTag 	1202
 #define kEmailNameTag 	1203
 
-
 @interface PRJMyInfoViewController : UIViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) IBOutlet UITextField* FirstName;
-@property (strong, nonatomic) IBOutlet UITextField* LastName;
-@property (strong, nonatomic) IBOutlet UITextField* Email;
+@property (strong, nonatomic) IBOutlet UITextField	*FirstName;
+@property (strong, nonatomic) IBOutlet UITextField	*LastName;
+@property (strong, nonatomic) IBOutlet UITextField	*Email;
 
 -(void)save:(id)sender;
 

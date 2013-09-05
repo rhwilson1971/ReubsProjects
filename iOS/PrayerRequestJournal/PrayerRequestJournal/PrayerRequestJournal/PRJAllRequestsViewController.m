@@ -1,5 +1,5 @@
 //
-//  PRJFirstViewController.m
+//  PRJAllRequestsViewController.m
 //  PrayerRequestJournal
 //
 //  Created by Reuben Wilson on 10/24/12.
@@ -18,6 +18,10 @@
 @synthesize prayerRequests;
 @synthesize managedObjectContext;
 
+
+#pragma mark -
+#pragma mark View controller methods
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,26 +34,24 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-
+	
 }
-							
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-// method called
+
 - (void)viewWillAppear:(BOOL)animated {
     
     NSManagedObjectContext *moc = [self managedObjectContext];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:@"PrayerRequest" inManagedObjectContext:moc];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PrayerRequest" inManagedObjectContext:moc];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     [request setEntity:entityDescription];
-    
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateRequested" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
@@ -63,12 +65,8 @@
     
     if( nil != error )
     {
-        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Home Inventory" message:@"A serious error has occorred and Home Inventory must shut down.  Please re-install app" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        
-        //[alert show];
-        
-        //NSLog(@"Error occurred fetching from db %@", [error description]);
-        //exit(-1);
+        NSLog(@"Error occurred fetching from db %@", [error description]);
+        exit(-1);
     }
 }
 
