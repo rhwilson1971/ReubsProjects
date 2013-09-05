@@ -30,14 +30,13 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    //prayerRequests = [[NSMutableArray alloc] initWithObjects:@"Hello", @"Reuben", nil];
+
 }
 							
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
 }
 
 // method called
@@ -60,6 +59,8 @@
     
     prayerRequests = [[NSMutableArray alloc] initWithArray:array];
     
+    [self.tableView reloadData];
+    
     if( nil != error )
     {
         //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Home Inventory" message:@"A serious error has occorred and Home Inventory must shut down.  Please re-install app" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -69,17 +70,31 @@
         //NSLog(@"Error occurred fetching from db %@", [error description]);
         //exit(-1);
     }
-    
-    //prayerRequests = @[@"Hello", @"Reuben", @"Was", @"Here", nil];
-    //prayerRequests = [[NSMutableArray alloc] initWithObjects:@"Hello", @"Reuben", nil];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Data Access Methods (internal)
+-(void) removePrayerRequest:(PrayerRequest *) prayerRequest{
+
+    if( nil != prayerRequest){
+        
+        NSError *error;
+    
+        [managedObjectContext deleteObject:prayerRequest];
+    
+        [managedObjectContext save:&error];
+    
+        if(nil != error)
+        {
+            NSLog(@"Error occurred saving prayer request");
+        }
+    }
 }
 
 
@@ -101,16 +116,25 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
-        
     }
     
     PrayerRequest *pr = [prayerRequests objectAtIndex:indexPath.row];
+    
     cell.textLabel.text = [pr title];
-    // cell.textLabel.text =  [prayerRequests objectAtIndex:indexPath.row];
+
     return cell;
 }
 
-
-
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle==UITableViewCellEditingStyleDelete)
+    {
+        PrayerRequest * requestToDelete = [prayerRequests objectAtIndex:indexPath.row];
+        
+        [self removePrayerRequest:requestToDelete];
+        
+        [prayerRequests removeObjectAtIndex:indexPath.row];
+    }
+    [tableView reloadData];
+}
 
 @end

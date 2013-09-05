@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define kRequestTitleTag 1011
+#define kRequestDetailsTag 1012
+
 @interface PRJNewRequestViewController1 : UITableViewController<UITextFieldDelegate,UITextViewDelegate>
 {
     
@@ -24,5 +27,7 @@
 -(void) registerForKeyboardNotifications;
 -(void) keyboardWasShown:(NSNotification*) aNotification;
 -(void) keyboardWillBeHidden:(NSNotification *) aNotification;
+
+//-(void) goToTitleField;
 
 @end

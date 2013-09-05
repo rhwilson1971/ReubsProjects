@@ -9,7 +9,9 @@
 #import "PRJNewRequestViewController1.h"
 #import "PrayerRequest.h"
 
-@interface PRJNewRequestViewController1 ()
+@interface PRJNewRequestViewController1 (){
+    UIView * activeInputView;
+}
 
 @end
 
@@ -51,6 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Keyboard notifications, not needed at the moment, since using uitableview controller
 -(void) registerForKeyboardNotifications{
     
 }
@@ -63,78 +66,99 @@
     
 }
 
+#pragma mark - Actions handled by this controller
 
 - (void) save:(id)sender{
+
+    [activeInputView resignFirstResponder];
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSManagedObject *prayerRequestObject;
     
     NSError *error = nil;
     
     prayerRequestObject = [NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
-    
-    
     NSDate *dateRequested = [NSDate date];
     
-    NSString *requestTitle = @"Title Placeholder";
-    NSString *requestDetail = @"Detail Placeholder";
+    UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
+    UITextView *textView = (UITextView *)[self.view viewWithTag:kRequestDetailsTag];
+
+    NSString *requestTitle = [textField text];
+    NSString *requestDetail = [textView text];
     
-    [prayerRequestObject setValue:requestTitle forKey:@"title"];
-    [prayerRequestObject setValue:requestDetail forKey:@"detail"];
-    [prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
+    if([requestTitle length] > 0 && [requestDetail length] > 0 ){
+        
+        [prayerRequestObject setValue:requestTitle forKey:@"title"];
+        [prayerRequestObject setValue:requestDetail forKey:@"detail"];
+        [prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
     
-    [moc save:&error];
-    if(nil != error)
-    {
-        NSLog(@"Error occurred saving prayer request");
+        [moc save:&error];
+        if(nil != error)
+        {
+            NSLog(@"Error occurred saving prayer request");
+        }
+        
+        NSLog(@"Save button pressed");
+    
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    
+        [view show];
+    
+        view = nil;
     }
-    
-	NSLog(@"Save button pressed");
-    
-    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@   "OK", nil];
-    
-    [view show];
-    
-    view = nil;
 }
 
 -(void) cancel:(id)sender{
     
+    [activeInputView resignFirstResponder];
+    
+    UITextView *detailsView = (UITextView *)[self.view viewWithTag:kRequestDetailsTag];
+    UITextField *titleView = (UITextField *)[self.view viewWithTag:kRequestTitleTag];
+    
+    detailsView.text = @"";
+    titleView.text = @"";
 }
 
 #pragma mark - TextField delegate methods
 -(void) textFieldDidBeginEditing:(UITextField *)textField{
-    
+    NSLog(@"Text field did begin editing");
+    activeInputView=textField;
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    NSLog(@"Text field did end editing");
+    activeInputView=nil;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    if(currentSelection){
-        currentSelection = [NSIndexPath indexPathForRow:currentSelection.row+1 inSection:currentSelection.section];
-    }
-    else {
-        currentSelection = [NSIndexPath indexPathForRow:0 inSection:0];
-    }
+    int previousTag = textField.tag;
     
-    [self.tableView selectRowAtIndexPath:currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
+    if( previousTag == kRequestTitleTag)
+    {
+        UITextView *view = (UITextView *)[self.view viewWithTag:kRequestDetailsTag];
+        [view becomeFirstResponder];
+    }
 
     return YES;
 }
 
 
+
 #pragma mark - TextView delegate methods
 
 -(void) textViewDidBeginEditing:(UITextView *)textView{
+    NSLog(@"textView did begin editing");
+    activeInputView=textView;
+    
+
     
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
-    
+    NSLog(@"Text did end editing");
+    activeInputView=nil;
 }
 
 #pragma mark - Table view data source & delegate
@@ -159,13 +183,15 @@
         
         if( 0 == section){
             
-            UITextField * requestTitle = [[UITextField alloc] initWithFrame:CGRectMake(5,5,185,30)];
+            UITextField * requestTitle = [[UITextField alloc] initWithFrame:CGRectMake(5,5,290,30)];
             
             requestTitle.keyboardType = UIKeyboardTypeDefault;
             requestTitle.returnKeyType = UIReturnKeyNext;
             
             requestTitle.delegate = self;
-            
+            requestTitle.tag = kRequestTitleTag;
+            requestTitle.placeholder = @"prayer request description";
+            requestTitle.clearButtonMode = UITextFieldViewModeWhileEditing;
             
             [cell.contentView addSubview:requestTitle];
             
@@ -175,9 +201,26 @@
             UITextView * requestDetails = [[UITextView alloc] initWithFrame:CGRectMake(5,5,290,100)];
             
             requestDetails.keyboardType = UIKeyboardTypeDefault;
-            requestDetails.returnKeyType = UIReturnKeyDone;
+            requestDetails.returnKeyType = UIReturnKeyDefault;
             
             requestDetails.delegate = self;
+            requestDetails.tag = kRequestDetailsTag;
+            
+            UIToolbar *toolbar = [[UIToolbar alloc] init];
+            [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+            [toolbar sizeToFit];
+            
+            
+            NSArray *itemsArray = @[
+                                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
+                                    [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self action:@selector(goToTitleField)],
+                                    [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(goToFinishedEditing)]
+                                    ];
+            
+            [toolbar setItems:itemsArray];
+            
+            [requestDetails setInputAccessoryView:toolbar];
+            
             
             [cell.contentView addSubview:requestDetails];
         }
@@ -187,7 +230,7 @@
 
 -(CGFloat)tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGFloat cellHeight = 30.0;
+    CGFloat cellHeight = 40.0;
     
     if( [indexPath section] == 1 ){
         cellHeight = 200.0;
@@ -200,6 +243,38 @@ NSIndexPath *currentSelection;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     currentSelection = indexPath;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = NSLocalizedString(@"Prayer Request Title", @"Prayer Request Title");
+            break;
+        case 1:
+            sectionName = NSLocalizedString(@"Prayer Request Details", @"Prayer Request Details");
+            break;
+            // ...
+        default:
+            sectionName = @"";
+            break;
+    }
+    return sectionName;
+}
+
+-(void) goToTitleField{
+    
+    UITextField *titleView = (UITextField *)[self.view viewWithTag:kRequestTitleTag];
+    [titleView becomeFirstResponder];
+    
+}
+
+-(void) goToFinishedEditing{
+    
+    UITextView *detailsView = (UITextView *)[self.view viewWithTag:kRequestDetailsTag];
+    [detailsView resignFirstResponder];
 }
 
 @end
