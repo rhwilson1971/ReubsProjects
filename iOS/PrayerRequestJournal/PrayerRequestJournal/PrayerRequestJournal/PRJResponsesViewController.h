@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PrayerRequest.h"
+#import "PrayerResponse.h"
 
 @interface PRJResponsesViewController : UITableViewController
+{
+
+}
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong ,nonatomic) PrayerRequest *CurrentPrayerRequest;
+
 
 @end

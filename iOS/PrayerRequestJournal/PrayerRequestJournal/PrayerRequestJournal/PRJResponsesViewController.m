@@ -9,16 +9,26 @@
 #import "PRJResponsesViewController.h"
 
 @interface PRJResponsesViewController ()
+{
+	NSMutableArray *responsesSections;
+	NSArray *prayerResponses;
+}
 
 @end
 
 @implementation PRJResponsesViewController
+@synthesize managedObjectContext;
+@synthesize CurrentPrayerRequest;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+		self.title = NSLocalizedString(@"Prayer Request Detail", @"Prayer Request Detail");
+		
+		responsesSections = @[@"Prayer Request", @"Recent Responses"];
+		
     }
     return self;
 }
@@ -29,7 +39,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -40,13 +50,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Prayer request data method
+-(void) loadData
+{
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PrayerResponse" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    [request setEntity:entityDescription];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateRequested" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    NSError *error = nil;
+	
+	prayerResponses = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    
+    if( nil != error )
+    {
+        NSLog(@"Error occurred fetching from db %@", [error description]);
+        exit(-1);
+    }	
+	
+	[self.tableView reloadData];
+
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [responsesSections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
