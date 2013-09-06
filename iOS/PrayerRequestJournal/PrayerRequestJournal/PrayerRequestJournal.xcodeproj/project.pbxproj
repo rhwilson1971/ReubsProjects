@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE14EF3817D9F30A001709E7 /* PRJResponsesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE14EF3617D9F30A001709E7 /* PRJResponsesViewController.m */; };
+		CE14EF3917D9F30A001709E7 /* PRJResponsesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE14EF3717D9F30A001709E7 /* PRJResponsesViewController.xib */; };
 		CE180FD516644D4C006C2270 /* prj-flame57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = CE180FD216644D4C006C2270 /* prj-flame57x57.png */; };
 		CE180FD616644D4C006C2270 /* prj-flame114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = CE180FD316644D4C006C2270 /* prj-flame114x114.png */; };
 		CE180FD716644D4C006C2270 /* prj-flame144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = CE180FD416644D4C006C2270 /* prj-flame144x144.png */; };
@@ -44,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE14EF3517D9F30A001709E7 /* PRJResponsesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRJResponsesViewController.h; sourceTree = "<group>"; };
+		CE14EF3617D9F30A001709E7 /* PRJResponsesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRJResponsesViewController.m; sourceTree = "<group>"; };
+		CE14EF3717D9F30A001709E7 /* PRJResponsesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PRJResponsesViewController.xib; sourceTree = "<group>"; };
 		CE180FD216644D4C006C2270 /* prj-flame57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prj-flame57x57.png"; sourceTree = "<group>"; };
 		CE180FD316644D4C006C2270 /* prj-flame114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prj-flame114x114.png"; sourceTree = "<group>"; };
 		CE180FD416644D4C006C2270 /* prj-flame144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prj-flame144x144.png"; sourceTree = "<group>"; };
@@ -171,6 +176,9 @@
 				CE2461441638ED5C00029A38 /* PRJAppDelegate.h */,
 				CE2461451638ED5C00029A38 /* PRJAppDelegate.m */,
 				CEAA631A17D50BF40047B528 /* PRJNewRequestViewController1.h */,
+				CE14EF3517D9F30A001709E7 /* PRJResponsesViewController.h */,
+				CE14EF3617D9F30A001709E7 /* PRJResponsesViewController.m */,
+				CE14EF3717D9F30A001709E7 /* PRJResponsesViewController.xib */,
 				CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */,
 				CE24614D1638ED5C00029A38 /* PRJAllRequestsViewController.h */,
 				CE24614E1638ED5C00029A38 /* PRJAllRequestsViewController.m */,
@@ -293,6 +301,7 @@
 				CE2461531638ED5C00029A38 /* first@2x.png in Resources */,
 				CE2461581638ED5C00029A38 /* second.png in Resources */,
 				CE24615A1638ED5C00029A38 /* second@2x.png in Resources */,
+				CE14EF3917D9F30A001709E7 /* PRJResponsesViewController.xib in Resources */,
 				CE24615D1638ED5D00029A38 /* PRJAllRequestsViewController.xib in Resources */,
 				CE2461601638ED5D00029A38 /* PRJNewRequestViewController.xib in Resources */,
 				CE420C891650749B00471F90 /* share30x30.png in Resources */,
@@ -322,6 +331,7 @@
 				CE21A35017CAD94300578E3C /* PRJMyInfoViewController.m in Sources */,
 				CE415B1E1642128F007F6AD8 /* PrayerRequest.m in Sources */,
 				CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */,
+				CE14EF3817D9F30A001709E7 /* PRJResponsesViewController.m in Sources */,
 				CEAA631D17D50BF40047B528 /* PRJNewRequestViewController1.m in Sources */,
 				CE420C8416506E4400471F90 /* PRJShareViewController.m in Sources */,
 			);

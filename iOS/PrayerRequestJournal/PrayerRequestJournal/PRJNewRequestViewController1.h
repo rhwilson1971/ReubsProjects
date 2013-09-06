@@ -13,7 +13,7 @@
 #define kInputSections 			2
 #define kInputRows 				1
 #define kRequestTitleSection 	0
-#deiine kRequestDetailSection 	1
+#define kRequestDetailSection 	1
 
 @interface PRJNewRequestViewController1 : UITableViewController<UITextFieldDelegate,UITextViewDelegate>
 {
