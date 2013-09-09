@@ -165,8 +165,9 @@
  
  -(void) configureResponseCell:(UITableViewCell*)cell {
  
+	// add disclosure button
 	
- 
+	
  
  }
  
