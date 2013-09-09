@@ -48,10 +48,11 @@
     self.tabBarController.viewControllers = tabBarControllers;
     
     vcRequests.managedObjectContext = self.managedObjectContext;
-    vcRequest.managedObjectContext = self.managedObjectContext;
+	
+	vcRequest.managedObjectContext = self.managedObjectContext;
+	vcRequest.prayerRequestor = [self currentPrayerRequestor];
+	
     vcInfo.managedObjectContext = self.managedObjectContext;
-    
-    // pass over to the second view controller also, ok!
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -69,8 +70,6 @@
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PrayerRequestor" inManagedObjectContext:moc];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(LastName="];
-    
     [request setEntity:entityDescription];
     
     NSArray * items = [moc executeFetchRequest:request error:&error];
@@ -82,20 +81,18 @@
     
     if([items count] != 0)
     {
-        NSManagedObject *prayerRequestor = [items objectAtIndex:0];
-        
-        requestor = [[PrayerRequestor init] alloc];
-        
-        
-    
-        requestor.lastName = [prayerRequestor valueForKey:@"Firstname"];
-        requestor.firstName = [prayerRequestor valueForKey:@"LastName"];
-        requestor.email = [prayerRequestor valueForKey:@"Email"];
-        // requestor.r= [prayerRequestor valueForKey:@"Email"];
-    
+        requestor *prayerRequestor = (PrayerRequestor *)[items objectAtIndex:0];
     }
-
-    
+	else 
+	{
+		requestor = (PrayerRequestor *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequestor" inManagedObjectContext:self.managedObjectContext];
+		
+		requestor.FirstName = @"FirstName";
+		requestor.LastName = @"LastName":
+		requestor.email = @"your@email.com";
+		
+		[self saveContext];
+	}
     
     return requestor;
     

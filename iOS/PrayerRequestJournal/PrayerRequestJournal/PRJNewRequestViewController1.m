@@ -78,7 +78,7 @@
     
     NSError *error = nil;
     
-    prayerRequestObject = [NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
+    PrayerRequest * prayerRequestObject = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
     NSDate *dateRequested = [NSDate date];
     
     UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
@@ -89,9 +89,14 @@
     
     if([requestTitle length] > 0 && [requestDetail length] > 0 ){
         
-        [prayerRequestObject setValue:requestTitle forKey:@"title"];
-        [prayerRequestObject setValue:requestDetail forKey:@"detail"];
-        [prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
+        //[prayerRequestObject setValue:requestTitle forKey:@"title"];
+        //[prayerRequestObject setValue:requestDetail forKey:@"detail"];
+        //[prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
+		
+		prayerRequestObject.title  = requestTitle;
+		prayerRequestObject.detail = requestDetail;
+		prayerRequestObject.dateRequested = dateRequested;
+		prayerRequestObject.requestor = prayerRequestor;
     
         [moc save:&error];
 		
