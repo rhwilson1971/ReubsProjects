@@ -162,5 +162,20 @@
 }
  
  */
+ 
+ -(void) configureResponseCell:(UITableViewCell*)cell {
+ 
+	
+ 
+ 
+ }
+ 
+-(void) configureRequestCell:(UITableViewCell*)cell {
+ 
+	
+ 
+ 
+ }
+ 
 
 @end
