@@ -175,10 +175,9 @@
 				CE21A34E17CAD94300578E3C /* PRJMyInfoViewController.m */,
 				CE2461441638ED5C00029A38 /* PRJAppDelegate.h */,
 				CE2461451638ED5C00029A38 /* PRJAppDelegate.m */,
-				CEAA631A17D50BF40047B528 /* PRJNewRequestViewController1.h */,
 				CE14EF3517D9F30A001709E7 /* PRJResponsesViewController.h */,
 				CE14EF3617D9F30A001709E7 /* PRJResponsesViewController.m */,
-				CE14EF3717D9F30A001709E7 /* PRJResponsesViewController.xib */,
+				CEAA631A17D50BF40047B528 /* PRJNewRequestViewController1.h */,
 				CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */,
 				CE24614D1638ED5C00029A38 /* PRJAllRequestsViewController.h */,
 				CE24614E1638ED5C00029A38 /* PRJAllRequestsViewController.m */,
@@ -210,6 +209,7 @@
 		CE2461681638EDD300029A38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE14EF3717D9F30A001709E7 /* PRJResponsesViewController.xib */,
 				CE21A34F17CAD94300578E3C /* PRJMyInfoViewController.xib */,
 				CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */,
 				CE24615B1638ED5D00029A38 /* PRJAllRequestsViewController.xib */,

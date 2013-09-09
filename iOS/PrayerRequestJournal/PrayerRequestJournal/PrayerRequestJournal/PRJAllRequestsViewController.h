@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import <CoreData/CoreData.h>
+#import "PrayerRequestor.h"
 
 @interface PRJAllRequestsViewController : UITableViewController {
     NSMutableArray *prayerRequests;
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) PrayerRequestor *MyPrayerRequestor;
 
 @end

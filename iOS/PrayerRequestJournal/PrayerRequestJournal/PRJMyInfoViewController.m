@@ -88,14 +88,14 @@
 	
 	switch(textField.tag)
 	{
-		case kLastNameTag:
+		case kFirstNameTag:
 		break;
 		
 		case kLastNameTag:
 		break;
 		
 		case kEmailNameTag:
-		breka;
+		break;
 	}
 }
 

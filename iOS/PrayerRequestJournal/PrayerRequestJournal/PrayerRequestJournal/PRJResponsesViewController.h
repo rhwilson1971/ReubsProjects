@@ -16,7 +16,7 @@
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong ,nonatomic) PrayerRequest *CurrentPrayerRequest;
+
 
 
 @end

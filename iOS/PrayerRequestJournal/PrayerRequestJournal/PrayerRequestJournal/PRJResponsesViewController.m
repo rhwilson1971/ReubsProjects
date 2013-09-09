@@ -10,15 +10,14 @@
 
 @interface PRJResponsesViewController ()
 {
-	NSMutableArray *responsesSections;
-	NSArray *prayerResponses;
+	NSArray *responsesSections;
+	NSMutableArray *prayerResponses;
 }
 
 @end
 
 @implementation PRJResponsesViewController
 @synthesize managedObjectContext;
-@synthesize CurrentPrayerRequest;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -82,7 +81,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return [responsesSections count];
 }

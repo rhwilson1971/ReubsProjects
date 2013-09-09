@@ -59,6 +59,48 @@
     return YES;
 }
 
+- (PrayerRequestor*) currentPrayerRequestor
+{
+    PrayerRequestor * requestor=nil;
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PrayerRequestor" inManagedObjectContext:moc];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(LastName="];
+    
+    [request setEntity:entityDescription];
+    
+    NSArray * items = [moc executeFetchRequest:request error:&error];
+    
+    if(nil != error)
+    {
+        NSLog(@"Error occurred fetching prayer requestor");
+    }
+    
+    if([items count] != 0)
+    {
+        NSManagedObject *prayerRequestor = [items objectAtIndex:0];
+        
+        requestor = [[PrayerRequestor init] alloc];
+        
+        
+    
+        requestor.lastName = [prayerRequestor valueForKey:@"Firstname"];
+        requestor.firstName = [prayerRequestor valueForKey:@"LastName"];
+        requestor.email = [prayerRequestor valueForKey:@"Email"];
+        // requestor.r= [prayerRequestor valueForKey:@"Email"];
+    
+    }
+
+    
+    
+    return requestor;
+    
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

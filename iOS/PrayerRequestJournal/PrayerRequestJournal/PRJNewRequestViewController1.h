@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PrayerRequestor.h"
 
 #define kRequestTitleTag 		1011
 #define kRequestDetailsTag 		1012
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) IBOutlet UITextField * requestTitleField;
 @property (nonatomic, retain) IBOutlet UITextView * requestDetailView;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) PrayerRequestor *prayerRequestor;
 
 -(void)cancel:(id)sender;
 -(void)save:(id)sender;

@@ -19,6 +19,7 @@
 @implementation PRJNewRequestViewController1
 
 @synthesize managedObjectContext;
+@synthesize prayerRequestor;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
