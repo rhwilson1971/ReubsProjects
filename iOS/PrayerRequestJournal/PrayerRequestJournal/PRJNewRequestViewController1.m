@@ -20,6 +20,7 @@
 
 @synthesize managedObjectContext;
 @synthesize prayerRequestor;
+@synthesize prayerRequest;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,7 +46,6 @@
                                                                     target:self action:@selector(cancel:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = saveButton;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,29 +74,33 @@
 
     [activeInputView resignFirstResponder];
     NSManagedObjectContext *moc = [self managedObjectContext];
-//    NSManagedObject *prayerRequestObject;
     
     NSError *error = nil;
     
-    PrayerRequest * pro = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
-    NSDate *dateRequested = [NSDate date];
+    PrayerRequest * pr = nil;
+	
+	if( nil == prayerRequest ) {
+	
+		pr = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
+		NSDate *dateRequested = [NSDate date];
+	}
+	else {
+	
+		pr = self.prayerRequest;
+	}
     
     UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
-    UITextView *textView = (UITextView *)[self.view viewWithTag:kRequestDetailsTag];
+    UITextView *textView = (UITextView *) [self.view viewWithTag:kRequestDetailsTag];
 
     NSString *requestTitle = [textField text];
     NSString *requestDetail = [textView text];
     
     if([requestTitle length] > 0 && [requestDetail length] > 0 ){
-        
-        //[prayerRequestObject setValue:requestTitle forKey:@"title"];
-        //[prayerRequestObject setValue:requestDetail forKey:@"detail"];
-        //[prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
 		
-		pro.title  = requestTitle;
-		pro.detail = requestDetail;
-		pro.dateRequested = dateRequested;
-		pro.requestor = prayerRequestor;
+		pr.title  = requestTitle;
+		pr.detail = requestDetail;
+		pr.dateRequested = dateRequested;
+		pr.requestor = prayerRequestor;
     
         [moc save:&error];
 		
@@ -195,7 +199,9 @@
             requestTitle.tag = kRequestTitleTag;
             requestTitle.placeholder = @"prayer request description";
             requestTitle.clearButtonMode = UITextFieldViewModeWhileEditing;
-            
+			if( nil != self.prayerRequest ) {
+				requestTitle.text = self.prayerRequest.title;
+			}
             [cell.contentView addSubview:requestTitle];
             
         }
@@ -224,7 +230,10 @@
             [toolbar setItems:itemsArray];
             
             [requestDetails setInputAccessoryView:toolbar];
-            
+			
+			if( nil != self.prayerRequest ){
+				requestDetails.text = self.prayerRequest.detail;
+			}
             
             [cell.contentView addSubview:requestDetails];
         }
@@ -246,6 +255,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
+	
     switch (section)
     {
         case kRequestTitleSection:

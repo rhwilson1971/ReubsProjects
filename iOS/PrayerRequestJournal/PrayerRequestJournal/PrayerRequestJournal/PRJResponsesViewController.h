@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Reuben Wilson. All rights reserved.
 //
 
+#define kRequestSection 0
+#define kResponseSection 1
+
 #import <UIKit/UIKit.h>
 #import "PrayerRequest.h"
 #import "PrayerResponse.h"

@@ -7,6 +7,8 @@
 //
 
 #import "PRJResponsesViewController.h"
+#import "PRJNewRequestViewController1.h"
+#import "PRJNewResponseViewCOntroller.h"
 
 @interface PRJResponsesViewController ()
 {
@@ -70,15 +72,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger rows=0;
-    
-    if(0 == section){
-        
-        rows = 1;
-    }
-    else
-    {
-        rows = [prayerResponses count];
-    }
+	
+	switch( section )
+	{
+		case kRequestSection:
+        {
+			rows = 1;
+			break;
+		}
+		
+		case kResponseSection:
+		{
+			rows = [prayerResponses count];
+			break;
+		}
+	}
     
     return rows;
 }
@@ -91,7 +99,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = @"Hi";
+	NSInteger section = [indexPath section];
+	
+	switch( section )
+	{
+		case kRequestSection:
+		{
+			[self.configureRequestCell:cell prayerRequest:currentPrayerRequest];
+		}
+		break;
+		
+		case kResponseSection:
+		{
+			
+			PrayerResponse *pr = [prayerResponses objectAtIndex:indexPath.row];
+			
+			[self.configureResponseCell:cell prayerResponse:pr];
+			
+		}
+		break;
+	}
     
     return cell;
 }
@@ -143,30 +170,58 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+	
+	UIViewController *detailViewController = nil;
+	
+	switch( [indexPath section] )
+	{
+		case kRequestSection:
+		{
+			PRJNewRequestViewController1 *vc = [[PRJNewRequestViewController1 alloc] initWithNibName:@"PRJNewRequestViewController1" bundle:nil];
+			
+			// Pass the selected object to the new view controller.
+			vc.prayerRequest = currentPrayerRequest;
+			
+			detailViewController = vc;
+		}
+		break;
+		
+		case kResponseSection:
+		{
+			PRJNewResponseViewController *vc = [[PRJNewResponseViewController alloc] initWithNibName:@"PRJNewResponseViewController" bundle:nil];
+			
+			PrayerResponse * prayerResponse = [prayerResponses objectAtIndex:indexPath.row];
+			
+			// Pass the selected object to the new view controller.
+			vc.prayerResponse = prayerResponse;
+			
+			detailViewController = vc;
+			
+		}
+		break;
+	}
+	
+	if(nil != detailViewController ){
+	
+		// Push the view controller.
+		[self.navigationController pushViewController:detailViewController animated:YES];
+	}
 }
  
- */
- 
- -(void) configureResponseCell:(UITableViewCell*)cell {
- 
-	// add disclosure button
-	
-	
- 
+*/
+
+#pragma mark - Cell Configuration 
+ -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*)prayerResponse{
+	cell.textLabel.text = prayerResponse.disposition;
+	cell.detailTextLabel.text = prayerResponse.dateEntered;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
  }
  
--(void) configureRequestCell:(UITableViewCell*)cell {
- 
-	
- 
- 
- }
+-(void) configureRequestCell:(UITableViewCell*)cell prayerRequest:(PrayerRequest *)prayerRequest{
+	cell.textLabel.text = prayerRequest.title;
+	cell.detailTextLabel.text = prayerRequest.dateEntered;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  }
  
 
 @end

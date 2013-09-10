@@ -25,6 +25,7 @@
 @property (nonatomic, retain) IBOutlet UITextView * requestDetailView;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) PrayerRequestor *prayerRequestor;
+@property (storng, nonatomic) PrayerRequest *prayerRequest;
 
 -(void)cancel:(id)sender;
 -(void)save:(id)sender;
