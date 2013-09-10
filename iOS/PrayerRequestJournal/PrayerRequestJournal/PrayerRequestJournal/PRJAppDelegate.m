@@ -81,14 +81,14 @@
     
     if([items count] != 0)
     {
-        requestor *prayerRequestor = (PrayerRequestor *)[items objectAtIndex:0];
+        requestor = (PrayerRequestor *)[items objectAtIndex:0];
     }
 	else 
 	{
 		requestor = (PrayerRequestor *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequestor" inManagedObjectContext:self.managedObjectContext];
 		
 		requestor.FirstName = @"FirstName";
-		requestor.LastName = @"LastName":
+		requestor.LastName = @"LastName";
 		requestor.email = @"your@email.com";
 		
 		[self saveContext];

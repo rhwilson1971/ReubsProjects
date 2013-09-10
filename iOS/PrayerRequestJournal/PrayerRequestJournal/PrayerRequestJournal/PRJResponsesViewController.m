@@ -11,13 +11,14 @@
 @interface PRJResponsesViewController ()
 {
 	NSArray *responsesSections;
-	NSMutableArray *prayerResponses;
+	NSArray *prayerResponses;
 }
 
 @end
 
 @implementation PRJResponsesViewController
 @synthesize managedObjectContext;
+@synthesize currentPrayerRequest;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,9 +26,7 @@
     if (self) {
         // Custom initialization
 		self.title = NSLocalizedString(@"Prayer Request Detail", @"Prayer Request Detail");
-		
 		responsesSections = @[@"Prayer Request", @"Recent Responses"];
-		
     }
     return self;
 }
@@ -52,28 +51,10 @@
 #pragma mark - Prayer request data method
 -(void) loadData
 {
-    NSManagedObjectContext *moc = [self managedObjectContext];
+    // currentPrayerRequest.responses
+    prayerResponses = [currentPrayerRequest.responses allObjects];
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PrayerResponse" inManagedObjectContext:moc];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    [request setEntity:entityDescription];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateRequested" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    
-    NSError *error = nil;
-	
-	prayerResponses = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    
-    if( nil != error )
-    {
-        NSLog(@"Error occurred fetching from db %@", [error description]);
-        exit(-1);
-    }	
-	
-	[self.tableView reloadData];
-
+    [self.tableView reloadData];
 }
 
 
@@ -88,9 +69,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    NSInteger rows=0;
+    
+    if(0 == section){
+        
+        rows = 1;
+    }
+    else
+    {
+        rows = [prayerResponses count];
+    }
+    
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,7 +91,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    cell.textLabel.text = @"Hi";
     
     return cell;
 }

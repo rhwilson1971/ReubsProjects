@@ -74,11 +74,11 @@
 
     [activeInputView resignFirstResponder];
     NSManagedObjectContext *moc = [self managedObjectContext];
-    NSManagedObject *prayerRequestObject;
+//    NSManagedObject *prayerRequestObject;
     
     NSError *error = nil;
     
-    PrayerRequest * prayerRequestObject = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
+    PrayerRequest * pro = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
     NSDate *dateRequested = [NSDate date];
     
     UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
@@ -93,10 +93,10 @@
         //[prayerRequestObject setValue:requestDetail forKey:@"detail"];
         //[prayerRequestObject setValue:dateRequested forKey:@"dateRequested"];
 		
-		prayerRequestObject.title  = requestTitle;
-		prayerRequestObject.detail = requestDetail;
-		prayerRequestObject.dateRequested = dateRequested;
-		prayerRequestObject.requestor = prayerRequestor;
+		pro.title  = requestTitle;
+		pro.detail = requestDetail;
+		pro.dateRequested = dateRequested;
+		pro.requestor = prayerRequestor;
     
         [moc save:&error];
 		
