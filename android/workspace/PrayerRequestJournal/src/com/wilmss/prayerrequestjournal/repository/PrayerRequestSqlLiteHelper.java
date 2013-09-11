@@ -1,12 +1,12 @@
 package com.wilmss.prayerrequestjournal.repository;
 
-import android.context.Context;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 
-public class PrayerRequestJournalSqlLiteHelper extends SQLiteOpenHelper {
+public class PrayerRequestSqlLiteHelper extends SQLiteOpenHelper {
 
 	public static final String TABLE_PRAYER_REQUEST="prayer_request";
 	public static final String COLUMN_ID = "_id";
@@ -25,26 +25,23 @@ public class PrayerRequestJournalSqlLiteHelper extends SQLiteOpenHelper {
 		+ " integer not null);";
 		
 	
-	public PrayerRequestJournalSqlLiteHelper(Context context) {
+	public PrayerRequestSqlLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 	
 	@Override
-	public void onCreate(Context context)
+	public void onCreate(SQLiteDatabase db)
 	{
-		database.execSQL(DATBASE_CCREATE);
+		db.execSQL(DATABASE_CREATE);
 	}
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-		Log.w(PrayerRequestJournalSqlLiteHelper.class.getName(), "Upgrading database from version " + oldVersion
+		Log.w(PrayerRequestSqlLiteHelper.class.getName(), "Upgrading database from version " + oldVersion
 			+ " to " + newVersion + ", Which will destroy old data");
 			
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRAYER_REQUEST);
 		
-		onCreated(db);
+		onCreate(db);
 	}
-	
-	
-
 }

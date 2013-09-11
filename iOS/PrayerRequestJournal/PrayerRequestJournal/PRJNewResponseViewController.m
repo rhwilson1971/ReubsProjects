@@ -13,6 +13,9 @@
 @end
 
 @implementation PRJNewResponseViewController
+@synthesize managedObjectContext;
+@synthesize dispositionsSegmentedControl;
+@synthesize responseDetail;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +35,72 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+}
+
+-(void) loadData{
+
+	if( self.prayerResponse != nil )
+	{
+		
+	
+	
+	
+	}
+}
+
+-(void) save
+{
+	[activeInputView resignFirstResponder];
+	
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    
+    NSError *error = nil;
+    
+    PrayerResponse * pr = nil;
+    
+    NSDate *dateRequested = [NSDate date];
+	
+	if( nil == prayerResponse ) {
+	
+		response = (PrayerResponse *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerResponse" inManagedObjectContext:moc];
+		
+	}
+	else {
+	
+		response = prayerResponse;
+	}
+    
+    UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
+    UITextView *textView = (UITextView *) [self.view viewWithTag:kRequestDetailsTag];
+
+    NSString *requestTitle = [textField text];
+    NSString *requestDetail = [textView text];
+    
+    if([requestTitle length] > 0 && [requestDetail length] > 0 ){
+		
+		pr.title  = requestTitle;
+		pr.detail = requestDetail;
+		pr.dateRequested = dateRequested;
+		pr.requestor = prayerRequestor;
+    
+        [moc save:&error];
+		
+        if(nil != error)
+        {
+            NSLog(@"Error occurred saving prayer request");
+        }
+        
+        NSLog(@"Save button pressed");
+    
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    
+        [view show];
+    
+        view = nil;
+    }	
+	
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,4 +195,14 @@
  
  */
 
+ -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) prayerResponse
+ {
+	
+ }
+ 
+ -(void) configureDispositionCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) prayerResponse
+ {
+	
+ }
+ 
 @end
