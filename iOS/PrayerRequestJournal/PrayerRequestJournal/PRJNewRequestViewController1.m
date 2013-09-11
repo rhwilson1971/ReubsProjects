@@ -78,11 +78,13 @@
     NSError *error = nil;
     
     PrayerRequest * pr = nil;
+    
+    NSDate *dateRequested = [NSDate date];
 	
 	if( nil == prayerRequest ) {
 	
 		pr = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
-		NSDate *dateRequested = [NSDate date];
+		
 	}
 	else {
 	

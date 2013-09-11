@@ -39,6 +39,8 @@
 		CE420C8416506E4400471F90 /* PRJShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE420C8216506E4400471F90 /* PRJShareViewController.m */; };
 		CE420C891650749B00471F90 /* share30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = CE420C871650749B00471F90 /* share30x30.png */; };
 		CE420C8A1650749B00471F90 /* share60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = CE420C881650749B00471F90 /* share60x60.png */; };
+		CE4B0C2A17E00874009C79D0 /* PRJNewResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B0C2817E00874009C79D0 /* PRJNewResponseViewController.m */; };
+		CE4B0C2B17E00874009C79D0 /* PRJNewResponseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4B0C2917E00874009C79D0 /* PRJNewResponseViewController.xib */; };
 		CE7CFCB5166D796500FD6BDA /* KeyboardToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */; };
 		CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */; };
 		CEAA631D17D50BF40047B528 /* PRJNewRequestViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */; };
@@ -91,6 +93,9 @@
 		CE420C871650749B00471F90 /* share30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share30x30.png; sourceTree = "<group>"; };
 		CE420C881650749B00471F90 /* share60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share60x60.png; sourceTree = "<group>"; };
 		CE420C8C1651DADF00471F90 /* PRJNewRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRJNewRequestViewController.h; sourceTree = "<group>"; };
+		CE4B0C2717E00874009C79D0 /* PRJNewResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRJNewResponseViewController.h; path = ../PRJNewResponseViewController.h; sourceTree = "<group>"; };
+		CE4B0C2817E00874009C79D0 /* PRJNewResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRJNewResponseViewController.m; path = ../PRJNewResponseViewController.m; sourceTree = "<group>"; };
+		CE4B0C2917E00874009C79D0 /* PRJNewResponseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PRJNewResponseViewController.xib; path = ../PRJNewResponseViewController.xib; sourceTree = "<group>"; };
 		CE7CFCB4166D796500FD6BDA /* KeyboardToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardToolbarView.xib; sourceTree = "<group>"; };
 		CE8A8AD016435DA0008A1594 /* PRJDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRJDataAccess.h; sourceTree = "<group>"; };
 		CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRJDataAccess.m; sourceTree = "<group>"; };
@@ -171,6 +176,8 @@
 		CE2461661638ED9900029A38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE4B0C2717E00874009C79D0 /* PRJNewResponseViewController.h */,
+				CE4B0C2817E00874009C79D0 /* PRJNewResponseViewController.m */,
 				CE21A34D17CAD94300578E3C /* PRJMyInfoViewController.h */,
 				CE21A34E17CAD94300578E3C /* PRJMyInfoViewController.m */,
 				CE2461441638ED5C00029A38 /* PRJAppDelegate.h */,
@@ -209,6 +216,7 @@
 		CE2461681638EDD300029A38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE4B0C2917E00874009C79D0 /* PRJNewResponseViewController.xib */,
 				CE14EF3717D9F30A001709E7 /* PRJResponsesViewController.xib */,
 				CE21A34F17CAD94300578E3C /* PRJMyInfoViewController.xib */,
 				CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */,
@@ -298,6 +306,7 @@
 				CE21A35117CAD94300578E3C /* PRJMyInfoViewController.xib in Resources */,
 				CE24614C1638ED5C00029A38 /* Default-568h@2x.png in Resources */,
 				CE2461511638ED5C00029A38 /* first.png in Resources */,
+				CE4B0C2B17E00874009C79D0 /* PRJNewResponseViewController.xib in Resources */,
 				CE2461531638ED5C00029A38 /* first@2x.png in Resources */,
 				CE2461581638ED5C00029A38 /* second.png in Resources */,
 				CE24615A1638ED5C00029A38 /* second@2x.png in Resources */,
@@ -322,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2461421638ED5C00029A38 /* main.m in Sources */,
+				CE4B0C2A17E00874009C79D0 /* PRJNewResponseViewController.m in Sources */,
 				CE2461461638ED5C00029A38 /* PRJAppDelegate.m in Sources */,
 				CE24614F1638ED5C00029A38 /* PRJAllRequestsViewController.m in Sources */,
 				CE2461561638ED5C00029A38 /* PRJNewRequestViewController.m in Sources */,
