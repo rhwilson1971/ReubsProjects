@@ -46,24 +46,26 @@ public class PrayerRequestRepositorySqlLite {
      */
     public static class PrayerRequestItem {
         public String id;
-        public String content;
-        
-        public String title;
-        public String request;
-        public Date dateEntered; 
+		PrayerRequest request;
+		public String title;
+		public String details;
 
-        public PrayerRequestItem(String id, String title, String content) 
+		public PrayerRequestItem(String id, String title, String details){
+			this.title = title;
+			this.details = details;
+			this.id=id;
+		}
+		
+        public PrayerRequestItem(String id, PrayerRequest request) 
         {
             this.id = id;
-            this.title = title;
-            this.request = content;
-            
-            this.dateEntered = new Date();
+			this.request=request;
         }
         
         @Override
         public String toString() {
-            return this.title;
+            // return this.request.toString();
+        	return title;
         }
     }	
 	

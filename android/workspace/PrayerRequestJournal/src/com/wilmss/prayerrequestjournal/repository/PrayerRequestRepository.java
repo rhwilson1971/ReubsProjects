@@ -28,7 +28,14 @@ public class PrayerRequestRepository {
         // Add 3 sample items.
         addItem(new PrayerRequestItem("1", "Prayer for New Child", "Prayed for a new child this week that is healthy"));
         addItem(new PrayerRequestItem("2", "Arnolds's Cancer", "Arnold contracted cancer last year..."));
-        addItem(new PrayerRequestItem("3", "Toby's Eyeballs", "Tony has been having streaks in his eyes"));
+        addItem(new PrayerRequestItem("3", "Rain", "Rain for crops"));
+        addItem(new PrayerRequestItem("4", "Spelling Bee", "Good showing at spelling bee"));
+        addItem(new PrayerRequestItem("5", "Audi", "Pray to get a brand new Audi"));
+        addItem(new PrayerRequestItem("6", "House", "House"));
+        addItem(new PrayerRequestItem("7", "Lose Weight", "Loose 30 lbs"));
+        addItem(new PrayerRequestItem("8", "Bills", "Help with Bills"));
+        addItem(new PrayerRequestItem("9", "Trip", "Safe travels"));
+        addItem(new PrayerRequestItem("10", "Business", "Successful business venture"));
     }
 
     private static void addItem(PrayerRequestItem item) {

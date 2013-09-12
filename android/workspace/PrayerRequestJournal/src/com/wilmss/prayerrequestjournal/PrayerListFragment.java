@@ -18,7 +18,7 @@ import com.wilmss.prayerrequestjournal.repository.PrayerRequestRepository;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class PrayerListFragment extends ListFragment {
+public class PrayerListFragment extends ListFragment{
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -70,6 +70,14 @@ public class PrayerListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
+		setListAdapter(new ArrayAdapter<PrayerRequest>(
+				getActivity(),
+				android.R.layout.simple_list_item_activated_1,
+				android.R.id.text1,
+				PrayerRequestRepository));
+		*/
+		
         // TODO: replace with a real list adapter.
         setListAdapter(new ArrayAdapter<PrayerRequestRepository.PrayerRequestItem>(
                 getActivity(),

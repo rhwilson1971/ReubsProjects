@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class PrayerRequestorSqlLiteHelper extends SQLiteOpenHelper {
-	public static final String TABLE_PRAYER_REQUEST="prayer_requestor";
+	public static final String TABLE_PRAYER_REQUESTOR="prayer_requestor";
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_FIRST_NAME = "first_name";
 	public static final String COLUMN_LAST_NAME = "last_name";
@@ -16,7 +16,7 @@ public class PrayerRequestorSqlLiteHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION=-1;
 	
 	private static final String DATABASE_CREATE = "create table "
-		+ TABLE_PRAYER_REQUEST + "(" 
+		+ TABLE_PRAYER_REQUESTOR + "(" 
 		+ COLUMN_ID + " integer primary key autoincrement, " 
 		+ COLUMN_FIRST_NAME + " text not null, " 
 		+ COLUMN_LAST_NAME + " text not null, " 
@@ -37,7 +37,7 @@ public class PrayerRequestorSqlLiteHelper extends SQLiteOpenHelper {
 		Log.w(PrayerRequestSqlLiteHelper.class.getName(), "Upgrading database from version " + oldVersion
 			+ " to " + newVersion + ", Which will destroy old data");
 			
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRAYER_REQUEST);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRAYER_REQUESTOR);
 		
 		onCreate(db);
 	}

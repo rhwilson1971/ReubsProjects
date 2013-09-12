@@ -30,6 +30,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PrayerListActivity" />
         </activity>
+        <provider android:name=".contentprovider.PrayerRequestContentProvider"
+            android:authorities="com.wilmss.prayerrequestjournal.contentprovider">
+            
+            
+        </provider>
     </application>
 
 </manifest>
