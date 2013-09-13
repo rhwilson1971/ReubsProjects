@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "PrayerResponse.h"
 
-@interface PRJNewResponseViewController : UITableViewController<UITextFieldlDelegate>
+@interface PRJNewResponseViewController : UITableViewController<UITextViewDelegate>
 
 
 @property (strong, nonatomic) PrayerResponse *prayerResponse;

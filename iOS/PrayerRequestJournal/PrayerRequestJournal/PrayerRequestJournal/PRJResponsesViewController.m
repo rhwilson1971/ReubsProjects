@@ -105,7 +105,8 @@
 	{
 		case kRequestSection:
 		{
-			[self.configureRequestCell:cell prayerRequest:currentPrayerRequest];
+            
+			[self configureRequestCell:cell prayerRequest:currentPrayerRequest];
 		}
 		break;
 		
@@ -114,7 +115,7 @@
 			
 			PrayerResponse *pr = [prayerResponses objectAtIndex:indexPath.row];
 			
-			[self.configureResponseCell:cell prayerResponse:pr];
+			[self configureResponseCell:cell prayerResponse:pr];
 			
 		}
 		break;
@@ -212,14 +213,33 @@
 
 #pragma mark - Cell Configuration 
  -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*)prayerResponse{
-	cell.textLabel.text = prayerResponse.disposition;
-	cell.detailTextLabel.text = prayerResponse.dateEntered;
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+     cell.textLabel.text = prayerResponse.disposition;
+     
+     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+     [formatter setDateFormat:@"yyyy"];
+     
+     //Optionally for time zone converstions
+     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+     
+     NSString *stringFromDate = [formatter stringFromDate:prayerResponse.dateEntered];
+
+     cell.detailTextLabel.text = stringFromDate;
+     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
  }
  
 -(void) configureRequestCell:(UITableViewCell*)cell prayerRequest:(PrayerRequest *)prayerRequest{
 	cell.textLabel.text = prayerRequest.title;
-	cell.detailTextLabel.text = prayerRequest.dateEntered;
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    
+    //Optionally for time zone converstions
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    
+    NSString *stringFromDate = [formatter stringFromDate:prayerRequest.dateRequested];
+    
+    cell.detailTextLabel.text = stringFromDate;
+
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
  

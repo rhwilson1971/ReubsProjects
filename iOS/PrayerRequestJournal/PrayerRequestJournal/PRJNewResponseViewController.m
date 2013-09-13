@@ -8,7 +8,11 @@
 
 #import "PRJNewResponseViewController.h"
 
-@interface PRJNewResponseViewController ()
+@interface PRJNewResponseViewController (){
+    
+    NSArray * sections;
+    
+}
 
 @end
 
@@ -16,6 +20,7 @@
 @synthesize managedObjectContext;
 @synthesize dispositionsSegmentedControl;
 @synthesize responseDetail;
+@synthesize prayerResponse;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,6 +41,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
+    sections = @[@"Disposition", @"Response"];
+    
 }
 
 -(void) loadData{
@@ -51,38 +58,37 @@
 
 -(void) save
 {
-	[activeInputView resignFirstResponder];
+	//[activeInputView resignFirstResponder];
 	
     NSManagedObjectContext *moc = [self managedObjectContext];
     
     NSError *error = nil;
     
-    PrayerResponse * pr = nil;
-    
-    NSDate *dateRequested = [NSDate date];
+    PrayerResponse * response = nil;
 	
 	if( nil == prayerResponse ) {
 	
 		response = (PrayerResponse *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerResponse" inManagedObjectContext:moc];
 		
+        response.dateEntered = [NSDate date];
 	}
 	else {
 	
 		response = prayerResponse;
 	}
     
-    UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
-    UITextView *textView = (UITextView *) [self.view viewWithTag:kRequestDetailsTag];
+    //UITextField *textField = (UITextField *) [self.view viewWithTag:kRequestTitleTag];
+    //UITextView *textView = (UITextView *) [self.view viewWithTag:kRequestDetailsTag];
 
-    NSString *requestTitle = [textField text];
-    NSString *requestDetail = [textView text];
+    //NSString *requestTitle = [textField text];
+    //NSString *requestDetail = [textView text];
     
-    if([requestTitle length] > 0 && [requestDetail length] > 0 ){
+    //if([requestTitle length] > 0 && [requestDetail length] > 0 ){
 		
-		pr.title  = requestTitle;
-		pr.detail = requestDetail;
-		pr.dateRequested = dateRequested;
-		pr.requestor = prayerRequestor;
+		response.response  = @"";
+		response.disposition = @"";
+		//response.dateRequested = dateRequested;
+		//pr.requestor = prayerRequestor;
     
         [moc save:&error];
 		
@@ -98,7 +104,7 @@
         [view show];
     
         view = nil;
-    }	
+    //}
 	
 
 }
@@ -113,16 +119,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+// #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,6 +140,16 @@
     }
     
     // Configure the cell...
+    switch( [indexPath section])
+    {
+        case 0:
+            [self configureDispositionCell:cell prayerResponse:self.prayerResponse];
+            break;
+        
+        case 1:
+            [self configureResponseCell:cell prayerResponse:self.prayerResponse];
+            break;
+    }
     
     return cell;
 }
@@ -195,14 +211,53 @@
  
  */
 
- -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) prayerResponse
+ -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) response
  {
-	
+     
+     NSArray * dispositions = @[@"Yes, continue", @"No, not for me", @"Waiting"];
+     
+     
+     UISegmentedControl * dispositionSegmentedControl = [[UISegmentedControl alloc] initWithItems:dispositions];
+     
+     dispositionSegmentedControl.tag = kDispostionTag;
+     
+
+     [cell.contentView addSubview:dispositionSegmentedControl];
  }
- 
- -(void) configureDispositionCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) prayerResponse
+
+ -(void) configureDispositionCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) response
  {
-	
+     UITextView * responseView = [[UITextView alloc] initWithFrame:CGRectMake(5,5,290,100)];
+     
+     responseView.keyboardType = UIKeyboardTypeDefault;
+     responseView.returnKeyType = UIReturnKeyDefault;
+     
+     responseView.delegate = self;
+     responseView.tag = kResponseTag;
+     
+     UIToolbar *toolbar = [[UIToolbar alloc] init];
+     [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+     [toolbar sizeToFit];
+     
+     
+     NSArray *itemsArray = @[
+                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
+                             [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self action:@selector(goToTitleField)],
+                             [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(goToFinishedEditing)]
+                             ];
+     
+     [toolbar setItems:itemsArray];
+     
+     [responseView setInputAccessoryView:toolbar];
+     
+     if( nil != response){
+         
+         responseView.text = response.response;
+     
+     }
+
+     [cell.contentView addSubview:responseView];
+    
  }
- 
+
 @end
