@@ -4,10 +4,19 @@ import java.util.Date;
 
 public class PrayerRequest {
 
+	private long id;
 	private String title;
 	private String detail;
 	private Date dateRequested;
 	private PrayerRequestor prayerRequestor;
+	
+	public long getId(){
+		return id;
+	}
+	
+	public void setId(long id){
+		this.id = id;
+	}
 	
 	public String getTitle(){
 		return title;

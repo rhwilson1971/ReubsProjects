@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import com.wilmss.prayerrequestjournal.repository.PrayerRequestSqlLiteHelper;
-import com.wilmss.prayerrequestjournal.repository.PrayerRequestorSqlLiteHelper;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
