@@ -216,12 +216,10 @@
      
      NSArray * dispositions = @[@"Yes, continue", @"No, not for me", @"Waiting"];
      
-     
      UISegmentedControl * dispositionSegmentedControl = [[UISegmentedControl alloc] initWithItems:dispositions];
      
      dispositionSegmentedControl.tag = kDispostionTag;
      
-
      [cell.contentView addSubview:dispositionSegmentedControl];
  }
 
