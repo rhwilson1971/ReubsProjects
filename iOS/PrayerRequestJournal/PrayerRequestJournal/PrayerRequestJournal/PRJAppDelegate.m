@@ -31,8 +31,10 @@
     
     PRJNewRequestViewController1 *vcRequest =
         [[PRJNewRequestViewController1 alloc] initWithNibName:@"PRJNewRequestViewController1" bundle:nil];
+    
     PRJShareViewController *vcShare =
         [[PRJShareViewController alloc] initWithNibName:@"PRJShareViewController" bundle:nil];
+    
     PRJMyInfoViewController *vcInfo =
         [[PRJMyInfoViewController alloc] initWithNibName:@"PRJMyInfoViewController" bundle:nil];
     

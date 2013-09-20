@@ -11,7 +11,7 @@
 @interface PRJNewResponseViewController (){
     
     NSArray * sections;
-    
+    UISegmentedControl * segControl;
 }
 
 @end
@@ -50,7 +50,7 @@
 	if( self.prayerResponse != nil )
 	{
 		
-	
+        
 	
 	
 	}
@@ -233,29 +233,64 @@
      responseView.delegate = self;
      responseView.tag = kResponseTag;
      
+     /*
      UIToolbar *toolbar = [[UIToolbar alloc] init];
      [toolbar setBarStyle:UIBarStyleBlackTranslucent];
      [toolbar sizeToFit];
      
-     
      NSArray *itemsArray = @[
                              [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
-                             [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self action:@selector(goToTitleField)],
-                             [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(goToFinishedEditing)]
+                             [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStyleBordered target:self action:@selector(goToTitleField)],
+                             [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(goToFinishedEditing)]
                              ];
      
      [toolbar setItems:itemsArray];
-     
-     [responseView setInputAccessoryView:toolbar];
+     */
+     [responseView setInputAccessoryView:[self keyboardToolBar]];
      
      if( nil != response){
          
          responseView.text = response.response;
-     
      }
 
      [cell.contentView addSubview:responseView];
     
  }
+
+- (UIToolbar *)keyboardToolBar {
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    [toolbar sizeToFit];
+    
+    segControl = [[UISegmentedControl alloc] initWithItems:@[@"Previous", @"Next"]];
+    [segControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    segControl.momentary = YES;
+    
+    [segControl addTarget:self action:@selector(changeRow:) forControlEvents:(UIControlEventValueChanged)];
+    [segControl setEnabled:NO forSegmentAtIndex:0];
+    
+    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithCustomView:segControl];
+    
+    NSArray *itemsArray = @[nextButton];
+    
+    [toolbar setItems:itemsArray];
+    
+    return toolbar;
+}
+
+- (void)changeRow:(id)sender {
+    
+    int index = [sender selectedSegmentIndex];
+    
+    //if (idx) {
+    //    self.topText.text = @"Top one";
+    //    [self.bottomText becomeFirstResponder];
+    //}
+    //else {
+    //    self.bottomText.text =@"Bottom one";
+    //    [self.topText becomeFirstResponder];
+    //}
+}
 
 @end

@@ -20,4 +20,7 @@
 
 @property (strong, nonatomic) PrayerRequest *currentPrayerRequest;
 
+- (void) add:(id)sender;
+
+
 @end

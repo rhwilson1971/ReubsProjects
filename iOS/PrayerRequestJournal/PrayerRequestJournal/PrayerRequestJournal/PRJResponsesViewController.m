@@ -27,8 +27,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-		self.title = NSLocalizedString(@"Prayer Request Detail", @"Prayer Request Detail");
-		responsesSections = @[@"Prayer Request", @"Recent Responses"];
     }
     return self;
 }
@@ -37,11 +35,16 @@
 {
     [super viewDidLoad];
 
+    self.title = NSLocalizedString(@"Prayer Request Detail", @"Prayer Request Detail");
+    responsesSections = @[@"Prayer Request", @"Recent Responses"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Answer"
+                                                                              style:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +52,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void) add:(id)sender{
+    
+    PRJNewResponseViewController * nrvc = [[PRJNewResponseViewController alloc] initWithNibName:@"PRJNewResponseViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:nrvc animated:YES];
+}
+
+
 
 #pragma mark - Prayer request data method
 -(void) loadData

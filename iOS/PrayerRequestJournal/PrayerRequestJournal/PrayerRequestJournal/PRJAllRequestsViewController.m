@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Reuben Wilson. All rights reserved.
 //
 
+#import "PRJResponsesViewController.h"
 #import "PRJAllRequestsViewController.h"
 #import "PrayerRequest.h"
 
@@ -134,6 +135,18 @@
         [prayerRequests removeObjectAtIndex:indexPath.row];
     }
     [tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PrayerRequest * prayerRequest = [prayerRequests objectAtIndex:indexPath.row];
+    
+    PRJResponsesViewController *vc = [[PRJResponsesViewController alloc] initWithNibName:@"PRJResponsesViewController" bundle:nil];
+    
+    vc.currentPrayerRequest = prayerRequest;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 @end
