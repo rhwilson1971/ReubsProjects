@@ -85,25 +85,25 @@
     
     //if([requestTitle length] > 0 && [requestDetail length] > 0 ){
 		
-		response.response  = @"";
-		response.disposition = @"";
-		//response.dateRequested = dateRequested;
-		//pr.requestor = prayerRequestor;
+    response.response  = @"";
+    response.disposition = @"";
+    //response.dateRequested = dateRequested;
+    //pr.requestor = prayerRequestor;
     
-        [moc save:&error];
+    [moc save:&error];
 		
-        if(nil != error)
-        {
-            NSLog(@"Error occurred saving prayer request");
-        }
+    if(nil != error)
+    {
+        NSLog(@"Error occurred saving prayer request");
+    }
         
-        NSLog(@"Save button pressed");
+    NSLog(@"Save button pressed");
     
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     
-        [view show];
+    [view show];
     
-        view = nil;
+    view = nil;
     //}
 	
 
