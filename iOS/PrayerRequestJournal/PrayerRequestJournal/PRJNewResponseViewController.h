@@ -11,15 +11,13 @@
 
 #import <UIKit/UIKit.h>
 #import "PrayerResponse.h"
+#import "PrayerRequest.h"
 
 @interface PRJNewResponseViewController : UITableViewController<UITextViewDelegate>
 
+@property (weak, nonatomic) PrayerResponse *prayerResponse;
+@property (weak, nonatomic) PrayerRequest *prayerRequest;
 
-@property (strong, nonatomic) PrayerResponse *prayerResponse;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-@property (nonatomic, retain) IBOutlet UISegmentedControl * dispositionsSegmentedControl;
-@property (nonatomic, retain) IBOutlet UITextView * responseDetail;
-
 
 @end
