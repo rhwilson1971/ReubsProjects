@@ -12,7 +12,7 @@
 
 @interface PRJResponsesViewController ()
 {
-	NSArray *responsesSections;
+	NSArray *responseViewSections;
 	NSArray *prayerResponses;
 }
 
@@ -25,7 +25,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self) 
+	{
         // Custom initialization
     }
     return self;
@@ -36,7 +37,9 @@
     [super viewDidLoad];
 
     self.title = NSLocalizedString(@"Prayer Request Detail", @"Prayer Request Detail");
-    responsesSections = @[@"Prayer Request", @"Recent Responses"];
+    
+	responseViewSections = @[@"Prayer Request", @"Recent Responses"];
+	
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
@@ -53,33 +56,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Custom methods for this view controller
 
-- (void) add:(id)sender{
+
+- (void) add:(id)sender
+{
     
+	// treat this as a brand new prayer response
     PRJNewResponseViewController * nrvc = [[PRJNewResponseViewController alloc] initWithNibName:@"PRJNewResponseViewController" bundle:nil];
+	
+	nrvc.prayerResponse = nil;
+	nrvc.prayerRequest = self.currentPrayerRequest;
     
     [self.navigationController pushViewController:nrvc animated:YES];
 }
 
 
-
-#pragma mark - Prayer request data method
 -(void) loadData
 {
+
     // currentPrayerRequest.responses
     prayerResponses = [currentPrayerRequest.responses allObjects];
     
     [self.tableView reloadData];
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return [responsesSections count];
+    return [responseViewSections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -108,7 +115,8 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil) 
+	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
@@ -118,18 +126,15 @@
 	{
 		case kRequestSection:
 		{
-            
 			[self configureRequestCell:cell prayerRequest:currentPrayerRequest];
 		}
 		break;
 		
 		case kResponseSection:
 		{
+			PrayerResponse *response = [prayerResponses objectAtIndex:indexPath.row];
 			
-			PrayerResponse *pr = [prayerResponses objectAtIndex:indexPath.row];
-			
-			[self configureResponseCell:cell prayerResponse:pr];
-			
+			[self configureResponseCell:cell prayerResponse:response];
 		}
 		break;
 	}
@@ -150,11 +155,13 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete) 
+	{
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    else if (editingStyle == UITableViewCellEditingStyleInsert) 
+	{
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
@@ -195,7 +202,7 @@
 			
 			// Pass the selected object to the new view controller.
 			vc.prayerRequest = currentPrayerRequest;
-			
+		    
 			detailViewController = vc;
 		}
 		break;
@@ -206,11 +213,11 @@
 			
 			PrayerResponse * prayerResponse = [prayerResponses objectAtIndex:indexPath.row];
 			
-			// Pass the selected object to the new view controller.
+			// Pass the prayer request object to view controller
 			vc.prayerResponse = prayerResponse;
+			vc.prayerRequest = prayerResponse.request;
 			
 			detailViewController = vc;
-			
 		}
 		break;
 	}
@@ -225,7 +232,9 @@
 */
 
 #pragma mark - Cell Configuration 
- -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*)prayerResponse{
+ 
+ -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*)prayerResponse
+ {
      cell.textLabel.text = prayerResponse.disposition;
      
      NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -240,7 +249,8 @@
      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
  }
  
--(void) configureRequestCell:(UITableViewCell*)cell prayerRequest:(PrayerRequest *)prayerRequest{
+-(void) configureRequestCell:(UITableViewCell*)cell prayerRequest:(PrayerRequest *)prayerRequest
+{
 	cell.textLabel.text = prayerRequest.title;
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -254,7 +264,7 @@
     cell.detailTextLabel.text = stringFromDate;
 
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-  }
+}
  
 
 @end
