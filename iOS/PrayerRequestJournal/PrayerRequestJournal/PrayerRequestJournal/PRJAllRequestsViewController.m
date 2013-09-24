@@ -10,13 +10,14 @@
 #import "PRJAllRequestsViewController.h"
 #import "PrayerRequest.h"
 
-@interface PRJAllRequestsViewController ()
-@property (nonatomic, retain) NSMutableArray *prayerRequests;
-@end
+@interface PRJAllRequestsViewController () 
+{
+	NSMutableArray prayerRequests;
+}
 
 @implementation PRJAllRequestsViewController
 
-@synthesize prayerRequests;
+@synthesize MyPrayerRequestor;
 @synthesize managedObjectContext;
 
 
@@ -26,7 +27,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) 
+	{
         self.title = NSLocalizedString(@"Prayer Requests", @"Prayer Requests");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
@@ -34,7 +36,8 @@
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
 	
 	
 }
@@ -101,29 +104,47 @@
 #pragma mark -
 #pragma mark Table view data source and delegate methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [prayerRequests count];
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellId=@"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-    if(cell == nil){
+    if(cell == nil)
+	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
     
-    PrayerRequest *pr = [prayerRequests objectAtIndex:indexPath.row];
+    PrayerRequest *request = [prayerRequests objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [pr title];
-
+    [self configureRequestCell:cell withPrayerRequest:request];
+	
     return cell;
 }
+
+-(void) configureRequestCell:(UITableViewCell*)cell withRequest:(PrayerRequest *)prayerRequest
+{
+	// Get last response 
+	if( null != prayerRequest.responses ) 
+	{
+		
+	}
+	
+	NSString * dateAsString = [prayerRequest.dateRequested description];
+	
+	cell.textLabel.text = prayerRequest.title;
+	cell.detailLabel.text = [NSString stringWithFormat:@"As of %@ I'm waiting for response", dateAsString];
+}
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle==UITableViewCellEditingStyleDelete)

@@ -11,9 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "PrayerRequestor.h"
 
-@interface PRJAllRequestsViewController : UITableViewController {
-    NSMutableArray *prayerRequests;
-}
+@interface PRJAllRequestsViewController : UITableViewController 
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) PrayerRequestor *MyPrayerRequestor;
