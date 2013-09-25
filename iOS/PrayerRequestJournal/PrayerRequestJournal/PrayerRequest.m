@@ -2,8 +2,8 @@
 //  PrayerRequest.m
 //  PrayerRequestJournal
 //
-//  Created by Reuben Wilson on 10/31/12.
-//  Copyright (c) 2012 Reuben Wilson. All rights reserved.
+//  Created by Reuben Wilson on 9/24/13.
+//  Copyright (c) 2013 Reuben Wilson. All rights reserved.
 //
 
 #import "PrayerRequest.h"
@@ -16,6 +16,7 @@
 @dynamic dateAnswered;
 @dynamic dateRequested;
 @dynamic detail;
+@dynamic requestId;
 @dynamic title;
 @dynamic requestor;
 @dynamic responses;

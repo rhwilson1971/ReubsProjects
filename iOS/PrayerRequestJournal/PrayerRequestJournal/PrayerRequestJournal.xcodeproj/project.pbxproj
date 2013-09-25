@@ -32,9 +32,6 @@
 		CE24615D1638ED5D00029A38 /* PRJAllRequestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE24615B1638ED5D00029A38 /* PRJAllRequestsViewController.xib */; };
 		CE2461601638ED5D00029A38 /* PRJNewRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE24615E1638ED5D00029A38 /* PRJNewRequestViewController.xib */; };
 		CE24616B1638EE6200029A38 /* PRJDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE2461691638EE6200029A38 /* PRJDataModel.xcdatamodeld */; };
-		CE415B1816421273007F6AD8 /* PrayerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE415B1716421273007F6AD8 /* PrayerResponse.m */; };
-		CE415B1B16421283007F6AD8 /* PrayerRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE415B1A16421283007F6AD8 /* PrayerRequestor.m */; };
-		CE415B1E1642128F007F6AD8 /* PrayerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE415B1D1642128F007F6AD8 /* PrayerRequest.m */; };
 		CE415B62164220FB007F6AD8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE415B61164220FB007F6AD8 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CE420C8416506E4400471F90 /* PRJShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE420C8216506E4400471F90 /* PRJShareViewController.m */; };
 		CE420C891650749B00471F90 /* share30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = CE420C871650749B00471F90 /* share30x30.png */; };
@@ -45,6 +42,9 @@
 		CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */; };
 		CEAA631D17D50BF40047B528 /* PRJNewRequestViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */; };
 		CEAA631E17D50BF40047B528 /* PRJNewRequestViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */; };
+		CEAB257317F2878700F29A5A /* PrayerRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAB257217F2878700F29A5A /* PrayerRequestor.m */; };
+		CEAB257617F2878700F29A5A /* PrayerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAB257517F2878700F29A5A /* PrayerRequest.m */; };
+		CEAB257917F2878800F29A5A /* PrayerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAB257817F2878800F29A5A /* PrayerResponse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,12 +81,6 @@
 		CE24615C1638ED5D00029A38 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PRJAllRequestsViewController.xib; sourceTree = "<group>"; };
 		CE24615F1638ED5D00029A38 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PRJNewRequestViewController.xib; sourceTree = "<group>"; };
 		CE24616A1638EE6200029A38 /* PRJDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PRJDataModel.xcdatamodel; sourceTree = "<group>"; };
-		CE415B1616421273007F6AD8 /* PrayerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrayerResponse.h; path = ../PrayerResponse.h; sourceTree = "<group>"; };
-		CE415B1716421273007F6AD8 /* PrayerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrayerResponse.m; path = ../PrayerResponse.m; sourceTree = "<group>"; };
-		CE415B1916421283007F6AD8 /* PrayerRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrayerRequestor.h; path = ../PrayerRequestor.h; sourceTree = "<group>"; };
-		CE415B1A16421283007F6AD8 /* PrayerRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrayerRequestor.m; path = ../PrayerRequestor.m; sourceTree = "<group>"; };
-		CE415B1C1642128F007F6AD8 /* PrayerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrayerRequest.h; path = ../PrayerRequest.h; sourceTree = "<group>"; };
-		CE415B1D1642128F007F6AD8 /* PrayerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrayerRequest.m; path = ../PrayerRequest.m; sourceTree = "<group>"; };
 		CE415B61164220FB007F6AD8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CE420C8116506E4400471F90 /* PRJShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRJShareViewController.h; path = ../PRJShareViewController.h; sourceTree = "<group>"; };
 		CE420C8216506E4400471F90 /* PRJShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRJShareViewController.m; path = ../PRJShareViewController.m; sourceTree = "<group>"; };
@@ -102,6 +96,12 @@
 		CEAA631A17D50BF40047B528 /* PRJNewRequestViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRJNewRequestViewController1.h; path = ../PRJNewRequestViewController1.h; sourceTree = "<group>"; };
 		CEAA631B17D50BF40047B528 /* PRJNewRequestViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRJNewRequestViewController1.m; path = ../PRJNewRequestViewController1.m; sourceTree = "<group>"; };
 		CEAA631C17D50BF40047B528 /* PRJNewRequestViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PRJNewRequestViewController1.xib; path = ../PRJNewRequestViewController1.xib; sourceTree = "<group>"; };
+		CEAB257117F2878700F29A5A /* PrayerRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerRequestor.h; sourceTree = SOURCE_ROOT; };
+		CEAB257217F2878700F29A5A /* PrayerRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerRequestor.m; sourceTree = SOURCE_ROOT; };
+		CEAB257417F2878700F29A5A /* PrayerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerRequest.h; sourceTree = SOURCE_ROOT; };
+		CEAB257517F2878700F29A5A /* PrayerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerRequest.m; sourceTree = SOURCE_ROOT; };
+		CEAB257717F2878800F29A5A /* PrayerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerResponse.h; sourceTree = SOURCE_ROOT; };
+		CEAB257817F2878800F29A5A /* PrayerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerResponse.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,13 +232,13 @@
 			children = (
 				CE8A8AD116435DA0008A1594 /* PRJDataAccess.m */,
 				CE8A8AD016435DA0008A1594 /* PRJDataAccess.h */,
-				CE415B1C1642128F007F6AD8 /* PrayerRequest.h */,
-				CE415B1D1642128F007F6AD8 /* PrayerRequest.m */,
-				CE415B1916421283007F6AD8 /* PrayerRequestor.h */,
-				CE415B1A16421283007F6AD8 /* PrayerRequestor.m */,
 				CE2461691638EE6200029A38 /* PRJDataModel.xcdatamodeld */,
-				CE415B1616421273007F6AD8 /* PrayerResponse.h */,
-				CE415B1716421273007F6AD8 /* PrayerResponse.m */,
+				CEAB257117F2878700F29A5A /* PrayerRequestor.h */,
+				CEAB257217F2878700F29A5A /* PrayerRequestor.m */,
+				CEAB257417F2878700F29A5A /* PrayerRequest.h */,
+				CEAB257717F2878800F29A5A /* PrayerResponse.h */,
+				CEAB257817F2878800F29A5A /* PrayerResponse.m */,
+				CEAB257517F2878700F29A5A /* PrayerRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,15 +331,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2461421638ED5C00029A38 /* main.m in Sources */,
+				CEAB257917F2878800F29A5A /* PrayerResponse.m in Sources */,
 				CE4B0C2A17E00874009C79D0 /* PRJNewResponseViewController.m in Sources */,
 				CE2461461638ED5C00029A38 /* PRJAppDelegate.m in Sources */,
 				CE24614F1638ED5C00029A38 /* PRJAllRequestsViewController.m in Sources */,
+				CEAB257617F2878700F29A5A /* PrayerRequest.m in Sources */,
 				CE2461561638ED5C00029A38 /* PRJNewRequestViewController.m in Sources */,
+				CEAB257317F2878700F29A5A /* PrayerRequestor.m in Sources */,
 				CE24616B1638EE6200029A38 /* PRJDataModel.xcdatamodeld in Sources */,
-				CE415B1816421273007F6AD8 /* PrayerResponse.m in Sources */,
-				CE415B1B16421283007F6AD8 /* PrayerRequestor.m in Sources */,
 				CE21A35017CAD94300578E3C /* PRJMyInfoViewController.m in Sources */,
-				CE415B1E1642128F007F6AD8 /* PrayerRequest.m in Sources */,
 				CE8A8AD216435DA0008A1594 /* PRJDataAccess.m in Sources */,
 				CE14EF3817D9F30A001709E7 /* PRJResponsesViewController.m in Sources */,
 				CEAA631D17D50BF40047B528 /* PRJNewRequestViewController1.m in Sources */,

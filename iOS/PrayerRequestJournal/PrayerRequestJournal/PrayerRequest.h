@@ -2,8 +2,8 @@
 //  PrayerRequest.h
 //  PrayerRequestJournal
 //
-//  Created by Reuben Wilson on 10/31/12.
-//  Copyright (c) 2012 Reuben Wilson. All rights reserved.
+//  Created by Reuben Wilson on 9/24/13.
+//  Copyright (c) 2013 Reuben Wilson. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSDate * dateAnswered;
 @property (nonatomic, retain) NSDate * dateRequested;
 @property (nonatomic, retain) NSString * detail;
+@property (nonatomic, retain) NSNumber * requestId;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) PrayerRequestor *requestor;
 @property (nonatomic, retain) NSSet *responses;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3389" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="PrayerRequest" representedClassName="PrayerRequest" syncable="YES">
         <attribute name="dateAnswered" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateRequested" optional="YES" attributeType="Date" syncable="YES"/>
@@ -23,6 +23,7 @@
         <relationship name="requests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PrayerRequest" inverseName="requestor" inverseEntity="PrayerRequest" syncable="YES"/>
     </entity>
     <entity name="PrayerResponse" representedClassName="PrayerResponse" syncable="YES">
+        <attribute name="confidenceFactor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="dateEntered" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="disposition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="response" optional="YES" attributeType="String" syncable="YES"/>

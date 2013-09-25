@@ -215,7 +215,7 @@
 			
 			// Pass the prayer request object to view controller
 			vc.prayerResponse = prayerResponse;
-			vc.prayerRequest = prayerResponse.request;
+			vc.prayerRequest = (PrayerRequest *)prayerResponse.request;
 			
 			detailViewController = vc;
 		}

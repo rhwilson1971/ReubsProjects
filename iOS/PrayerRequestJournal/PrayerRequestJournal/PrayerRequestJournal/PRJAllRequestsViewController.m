@@ -12,8 +12,10 @@
 
 @interface PRJAllRequestsViewController () 
 {
-	NSMutableArray prayerRequests;
+	NSMutableArray *prayerRequests;
 }
+
+@end
 
 @implementation PRJAllRequestsViewController
 
@@ -126,7 +128,7 @@
     
     PrayerRequest *request = [prayerRequests objectAtIndex:indexPath.row];
     
-    [self configureRequestCell:cell withPrayerRequest:request];
+    [self configureRequestCell:cell withRequest:request];
 	
     return cell;
 }
@@ -134,7 +136,7 @@
 -(void) configureRequestCell:(UITableViewCell*)cell withRequest:(PrayerRequest *)prayerRequest
 {
 	// Get last response 
-	if( null != prayerRequest.responses ) 
+	if( nil != prayerRequest.responses )
 	{
 		
 	}
@@ -142,7 +144,7 @@
 	NSString * dateAsString = [prayerRequest.dateRequested description];
 	
 	cell.textLabel.text = prayerRequest.title;
-	cell.detailLabel.text = [NSString stringWithFormat:@"As of %@ I'm waiting for response", dateAsString];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"As of %@ I'm waiting for response", dateAsString];
 }
 
 
