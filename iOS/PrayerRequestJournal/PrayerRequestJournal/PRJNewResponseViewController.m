@@ -308,7 +308,6 @@
 
 - (UIToolbar *)keyboardToolBar 
 {
-    
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     
     [toolbar setBarStyle:UIBarStyleDefault];
@@ -316,10 +315,6 @@
     
     UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(moveFocusToDisposition:)];
-    
-    
-    
-    
     // [nextButton setTintColor: [UIColor lightGrayColor]];
     
     UIBarButtonItem *flexButton = [[UIBarButtonItem alloc]
@@ -346,12 +341,9 @@
 
 - (void) resignKeyboard:(id)sender
 {
-    
     UITextView * responseView = (UITextView *)[self.view viewWithTag:kResponseTag];
-    
     [responseView resignFirstResponder];
 }
-
 
 /*
 
