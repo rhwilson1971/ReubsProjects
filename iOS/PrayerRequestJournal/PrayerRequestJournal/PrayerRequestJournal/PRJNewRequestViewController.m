@@ -164,13 +164,17 @@
     [toolbar setBarStyle:UIBarStyleBlackTranslucent];
     [toolbar sizeToFit];
     
-    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
-    UIBarButtonItem *detailsButton = [[UIBarButtonItem alloc] initWithTitle:@"Details" style:UIBarButtonItemStylePlain target:self action:@selector(resignFirstResponder)];
+    UIBarButtonItem *detailsButton = [[UIBarButtonItem alloc]
+                                      initWithTitle:@"Details" style:UIBarButtonItemStylePlain target:self action:@selector(resignFirstResponder)];
                                       
-    UIBarButtonItem *titleButton = [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self
+    UIBarButtonItem *titleButton = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self
                                                                     action:@selector(resignFirstResponder)];
-    UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
+    UIBarButtonItem *doneButton =[[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
     
     NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, titleButton, detailsButton, doneButton, nil];
     
