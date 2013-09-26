@@ -70,30 +70,31 @@ public class PrayerRequestListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
- /*
-  *     @SuppressWarnings("unchecked")
-    ArrayAdapter<Comment> adapter = (ArrayAdapter<Comment>) getListAdapter();
-    Comment comment = null;
-    switch (view.getId()) {
-    case R.id.add:
-      String[] comments = new String[] { "Cool", "Very nice", "Hate it" };
-      int nextInt = new Random().nextInt(3);
-      // Save the new comment to the database
-      comment = datasource.createComment(comments[nextInt]);
-      adapter.add(comment);
-      break;
-    case R.id.delete:
-      if (getListAdapter().getCount() > 0) {
-        comment = (Comment) getListAdapter().getItem(0);
-        datasource.deleteComment(comment);
-        adapter.remove(comment);
-      }
-      break;
-    }
-    adapter.notifyDataSetChanged();
-  *        
-  *        
-  */
+        
+        	/*
+         	*     @SuppressWarnings("unchecked")
+    		ArrayAdapter<Comment> adapter = (ArrayAdapter<Comment>) getListAdapter();
+    		Comment comment = null;
+    		switch (view.getId()) {
+    			case R.id.add:
+      				String[] comments = new String[] { "Cool", "Very nice", "Hate it" };
+      				int nextInt = new Random().nextInt(3);
+      				// Save the new comment to the database
+      				comment = datasource.createComment(comments[nextInt]);
+      				adapter.add(comment);
+      				break;
+    			case R.id.delete:
+      				if (getListAdapter().getCount() > 0) {
+        				comment = (Comment) getListAdapter().getItem(0);
+        				datasource.deleteComment(comment);
+        				adapter.remove(comment);
+      				}
+      			break;
+    		}
+    		adapter.notifyDataSetChanged();
+         	*        
+         	*        
+         	*/
         
         ArrayAdapter<PrayerRequest> adapter = (ArrayAdapter<PrayerRequest>) getListAdapter();
         

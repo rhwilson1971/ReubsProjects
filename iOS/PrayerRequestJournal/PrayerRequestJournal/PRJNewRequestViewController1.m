@@ -9,7 +9,8 @@
 #import "PRJNewRequestViewController1.h"
 #import "PrayerRequest.h"
 
-@interface PRJNewRequestViewController1 (){
+@interface PRJNewRequestViewController1 ()
+{
     UIView * activeInputView;
 }
 
@@ -25,7 +26,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) 
+	{
         
         // Custom initialization
         self.title = NSLocalizedString(@"New", @"New");
@@ -59,18 +61,21 @@
     
 }
 
--(void) keyboardWasShown:(NSNotification*) aNotification{
+-(void) keyboardWasShown:(NSNotification*) aNotification
+{
     
 }
 
--(void) keyboardWillBeHidden:(NSNotification *) aNotification{
+-(void) keyboardWillBeHidden:(NSNotification *) aNotification
+{
     
 }
 
 #pragma mark - Actions handled by this controller
 
 // Method called when the user presses the save button
-- (void) save:(id)sender{
+- (void) save:(id)sender
+{
 
     [activeInputView resignFirstResponder];
     NSManagedObjectContext *moc = [self managedObjectContext];
@@ -81,13 +86,12 @@
     
     NSDate *dateRequested = [NSDate date];
 	
-	if( nil == prayerRequest ) {
-	
+	if( nil == prayerRequest ) 
+	{
 		pr = (PrayerRequest *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerRequest" inManagedObjectContext:moc];
-		
 	}
-	else {
-	
+	else 
+	{
 		pr = self.prayerRequest;
 	}
     
@@ -97,8 +101,8 @@
     NSString *requestTitle = [textField text];
     NSString *requestDetail = [textView text];
     
-    if([requestTitle length] > 0 && [requestDetail length] > 0 ){
-		
+    if([requestTitle length] > 0 && [requestDetail length] > 0 )
+	{
 		pr.title  = requestTitle;
 		pr.detail = requestDetail;
 		pr.dateRequested = dateRequested;
@@ -121,8 +125,8 @@
     }
 }
 
--(void) cancel:(id)sender{
-    
+-(void) cancel:(id)sender
+{
     [activeInputView resignFirstResponder];
     
     UITextView *detailsView = (UITextView *)[self.view viewWithTag:kRequestDetailsTag];
@@ -133,7 +137,8 @@
 }
 
 #pragma mark - TextField delegate methods
--(void) textFieldDidBeginEditing:(UITextField *)textField{
+-(void) textFieldDidBeginEditing:(UITextField *)textField
+{
     NSLog(@"Text field did begin editing");
     activeInputView=textField;
 }
@@ -144,8 +149,8 @@
     activeInputView=nil;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     int previousTag = textField.tag; // current field
     
     if( previousTag == kRequestTitleTag)

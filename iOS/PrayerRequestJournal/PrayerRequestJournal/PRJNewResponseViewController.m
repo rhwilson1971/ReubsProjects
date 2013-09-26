@@ -24,7 +24,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self) 
+	{
         // Custom initialization
     }
     return self;
@@ -49,16 +50,21 @@
     // [self loadData];
 }
 
-- (void) loadDisposition: (UISegmentedControl *)segmentedControl{
-    if( self.prayerResponse != nil){
+- (void) loadDisposition: (UISegmentedControl *)segmentedControl
+{
+    if( self.prayerResponse != nil)
+	{
         
-        if( [self.prayerResponse.response compare:@"No"] == 0 ){
+        if( [self.prayerResponse.response compare:@"No"] == 0 )
+		{
             [segmentedControl setSelectedSegmentIndex:0];
         }
-        else if ( [self.prayerResponse.response compare:@"Yes"] == 0){
+        else if ( [self.prayerResponse.response compare:@"Yes"] == 0)
+		{
             [segmentedControl setSelectedSegmentIndex:1];
         }
-        else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 ){
+        else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 )
+		{
             [segmentedControl setSelectedSegmentIndex:2];
         }
     }
@@ -68,19 +74,23 @@
     UISegmentedControl * segControlDisposition = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
     UITextView * responseTextView = (UITextView *)[self.view viewWithTag:kResponseTag];
     
-    if(nil == segControlDisposition || nil == responseTextView){
+    if(nil == segControlDisposition || nil == responseTextView)
+	{
         return ;
     }
     
 	if( self.prayerResponse != nil )
 	{
-        if( [self.prayerResponse.response compare:@"No"] == 0 ){
+        if( [self.prayerResponse.response compare:@"No"] == 0 )
+		{
             [segControlDisposition setSelectedSegmentIndex:0];
         }
-        else if ( [self.prayerResponse.response compare:@"Yes"] == 0){
+        else if ( [self.prayerResponse.response compare:@"Yes"] == 0)
+		{
             [segControlDisposition setSelectedSegmentIndex:1];
         }
-        else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 ){
+        else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 )
+		{
             [segControlDisposition setSelectedSegmentIndex:2];
         }
         
@@ -88,20 +98,23 @@
 	}
 }
 
--(void) save:(id) sender {
+-(void) save:(id) sender 
+{
     NSManagedObjectContext *moc = [self managedObjectContext];
     
     NSError *error = nil;
     
     PrayerResponse * response = nil;
 	
-	if( nil == prayerResponse ) {
+	if( nil == prayerResponse ) 
+	{
+		// this is failing currently
 		response = (PrayerResponse *)[NSEntityDescription insertNewObjectForEntityForName:@"PrayerResponse" inManagedObjectContext:moc];
         response.dateEntered = [NSDate date];
         response.request = prayerRequest;
 	}
-	else {
-	
+	else 
+	{
 		response = prayerResponse;
 	}
     
@@ -111,9 +124,12 @@
     response.response  = [textView text];
     NSInteger index = [segControl1 selectedSegmentIndex];
 
-    if( index == 0 ){
+    if( index == 0 )
+	{
         response.disposition = @"Yes";
-    }else if (index == 1 ){
+    }
+	else if (index == 1 )
+	{
         response.disposition = @"No";
     }
     else{
@@ -195,11 +211,13 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete) 
+	{
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    else if (editingStyle == UITableViewCellEditingStyleInsert) 
+	{
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
@@ -239,18 +257,20 @@
  
  */
 
--(CGFloat)tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+-(CGFloat)tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     CGFloat cellHeight = 40.0;
     
-    if( [indexPath section] == 1 ){
+    if( [indexPath section] == 1 )
+	{
         cellHeight = 150.0;
     }
     
     return cellHeight;
 }
 
- -(void) configureDispositionCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) response{
+ -(void) configureDispositionCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) response
+ {
      
      NSArray * dispositions = @[@"Yes, continue", @"No, not for me", @"Waiting"];
      
@@ -267,7 +287,8 @@
      [cell.contentView addSubview:view];
  }
 
- -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) response{
+ -(void) configureResponseCell:(UITableViewCell*)cell prayerResponse:(PrayerResponse*) response
+ {
      UITextView * responseView = [[UITextView alloc] initWithFrame:CGRectMake(1,1,290,145)];
      
      responseView.keyboardType = UIKeyboardTypeDefault;
@@ -285,7 +306,8 @@
      [cell.contentView addSubview:responseView];
  }
 
-- (UIToolbar *)keyboardToolBar {
+- (UIToolbar *)keyboardToolBar 
+{
     
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     
@@ -313,8 +335,8 @@
     return toolbar;
 }
 
-- (void) moveFocusToDisposition:(id)sender {
-    
+- (void) moveFocusToDisposition:(id)sender 
+{
     UISegmentedControl * dispositionView = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
     UITextView * responseView = (UITextView *)[self.view viewWithTag:kResponseTag];
     
@@ -322,7 +344,8 @@
     [dispositionView becomeFirstResponder];
 }
 
-- (void) resignKeyboard:(id)sender{
+- (void) resignKeyboard:(id)sender
+{
     
     UITextView * responseView = (UITextView *)[self.view viewWithTag:kResponseTag];
     
@@ -332,7 +355,8 @@
 
 /*
 
-- (UIToolbar *)keyboardToolBar3 {
+- (UIToolbar *)keyboardToolBar3 
+{
     
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     [toolbar setBarStyle:UIBarStyleDefault];
@@ -355,11 +379,13 @@
     return toolbar;
 }
 
-- (void)changeRow:(id)sender {
+- (void)changeRow:(id)sender 
+{
     
     int index = [sender selectedSegmentIndex];
     
-    switch (index) {
+    switch (index) 
+	{
         case 1:
         {
             UITextView *textView = (UITextView *) [self.view viewWithTag:kResponseTag];

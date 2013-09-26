@@ -1,4 +1,4 @@
-package com.wilmss.android.PrayerRequestJournal.repository;
+package com.wilmss.android.PRJ2.repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,9 +10,9 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.wilmss.android.PrayerRequestJournal.domain.PrayerRequest;
-import com.wilmss.android.PrayerRequestJournal.domain.PrayerRequestor;
-import com.wilmss.android.PrayerRequestJournal.repository.helpers.PrayerRequestSqliteHelper;
+import com.wilmss.android.PRJ2.domain.PrayerRequest;
+import com.wilmss.android.PRJ2.domain.PrayerRequestor;
+import com.wilmss.android.PRJ2.repository.helpers.PrayerRequestSqliteHelper;
 
 public class PrayerRequestRepositorySqlLite {
 
