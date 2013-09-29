@@ -8,10 +8,11 @@
 
 #import "PRJNewResponseViewController.h"
 
-@interface PRJNewResponseViewController (){
-    
+@interface PRJNewResponseViewController ()
+{
+	NSInteger responseSection;
+	NSIngeter requestSection;
     NSArray * sections;
-    UISegmentedControl * segControl;
 }
 
 @end
@@ -24,6 +25,7 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
+	
     if (self) 
 	{
         // Custom initialization
@@ -50,31 +52,32 @@
     // [self loadData];
 }
 
-- (void) loadDisposition: (UISegmentedControl *)segmentedControl
+- (void) loadDisposition: (UISegmentedControl *)segControl
 {
     if( self.prayerResponse != nil)
 	{
-        
-        if( [self.prayerResponse.response compare:@"No"] == 0 )
+		NSInteger savedDisposition=0;
+		
+		if ( [self.prayerResponse.response compare:@"Yes"] == 0)
 		{
-            [segmentedControl setSelectedSegmentIndex:0];
-        }
-        else if ( [self.prayerResponse.response compare:@"Yes"] == 0)
-		{
-            [segmentedControl setSelectedSegmentIndex:1];
+            savedDisposition=1;
         }
         else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 )
 		{
-            [segmentedControl setSelectedSegmentIndex:2];
+            savedDisposition=2;
         }
+		
+		[segControl setSelectedSegmentIndex:savedDisposition];
+		
     }
 }
 
--(void) loadData{
-    UISegmentedControl * segControlDisposition = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
+-(void) loadData
+{
+    UISegmentedControl * segControl = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
     UITextView * responseTextView = (UITextView *)[self.view viewWithTag:kResponseTag];
     
-    if(nil == segControlDisposition || nil == responseTextView)
+    if(nil == segControl || nil == responseTextView)
 	{
         return ;
     }
@@ -83,15 +86,15 @@
 	{
         if( [self.prayerResponse.response compare:@"No"] == 0 )
 		{
-            [segControlDisposition setSelectedSegmentIndex:0];
+            [segControl setSelectedSegmentIndex:0];
         }
         else if ( [self.prayerResponse.response compare:@"Yes"] == 0)
 		{
-            [segControlDisposition setSelectedSegmentIndex:1];
+            [segControl setSelectedSegmentIndex:1];
         }
         else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 )
 		{
-            [segControlDisposition setSelectedSegmentIndex:2];
+            [segControl setSelectedSegmentIndex:2];
         }
         
         responseTextView.text = self.prayerResponse.response;
@@ -119,10 +122,10 @@
 	}
     
     UITextView * textView = (UITextView *)[self.view viewWithTag:kResponseTag];
-    UISegmentedControl * segControl1 = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
+    UISegmentedControl * segControl = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
 
     response.response  = [textView text];
-    NSInteger index = [segControl1 selectedSegmentIndex];
+    NSInteger index = [segControl selectedSegmentIndex];
 
     if( index == 0 )
 	{
@@ -132,13 +135,15 @@
 	{
         response.disposition = @"No";
     }
-    else{
+    else
+	{
         response.disposition = @"Waiting";
     }
     
     [moc save:&error];
 		
-    if(nil != error){
+    if(nil != error)
+	{
         NSLog(@"Error occurred saving prayer request");
     }
         
@@ -179,7 +184,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
+    if (cell == nil) 
+	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
