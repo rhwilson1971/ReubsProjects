@@ -48,6 +48,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Answer"
                                                                               style:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
+    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +69,7 @@
 	
 	nrvc.prayerResponse = nil;
 	nrvc.prayerRequest = self.currentPrayerRequest;
+    nrvc.managedObjectContext = self.managedObjectContext;
     
     [self.navigationController pushViewController:nrvc animated:YES];
 }
@@ -117,7 +120,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
 	{
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
 	NSInteger section = [indexPath section];
@@ -245,6 +248,7 @@
 
      cell.detailTextLabel.text = stringFromDate;
      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+     
  }
  
 -(void) configureRequestCell:(UITableViewCell*)cell prayerRequest:(PrayerRequest *)prayerRequest

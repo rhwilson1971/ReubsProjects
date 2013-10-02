@@ -123,7 +123,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     if(cell == nil)
 	{
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellId];
     }
     
     PrayerRequest *request = [prayerRequests objectAtIndex:indexPath.row];
@@ -164,11 +164,13 @@
     
     PrayerRequest * prayerRequest = [prayerRequests objectAtIndex:indexPath.row];
     
-    PRJResponsesViewController *vc = [[PRJResponsesViewController alloc] initWithNibName:@"PRJResponsesViewController" bundle:nil];
+    PRJResponsesViewController *responsesViewController = [[PRJResponsesViewController alloc] initWithNibName:@"PRJResponsesViewController" bundle:nil];
     
-    vc.currentPrayerRequest = prayerRequest;
+    responsesViewController.currentPrayerRequest = prayerRequest;
+    responsesViewController.managedObjectContext = [self managedObjectContext];
     
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    [self.navigationController pushViewController:responsesViewController animated:YES];
     
 }
 
