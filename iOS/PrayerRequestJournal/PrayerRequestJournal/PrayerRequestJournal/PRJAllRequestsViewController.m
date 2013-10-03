@@ -141,10 +141,25 @@
 		
 	}
 	
-	NSString * dateAsString = [prayerRequest.dateRequested description];
+//	NSString * dateAsString = [prayerRequest.dateRequested description];
 	
 	cell.textLabel.text = prayerRequest.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"As of %@ I'm waiting for response", dateAsString];
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"As of %@ I'm waiting for response", dateAsString];
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //[dateFormatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm"];
+    [dateFormatter setDateFormat:@"EEE, MMM d, ''yy"];
+    // NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:162000];
+    
+    NSString *formattedDateString = [dateFormatter stringFromDate:prayerRequest.dateRequested];
+    NSLog(@"formattedDateString: %@", formattedDateString);
+    
+    cell.detailTextLabel.text = formattedDateString;
+    
+    
+    // For US English, the output may be:
+    // formattedDateString: 2001-01-02 at 13:00
 }
 
 

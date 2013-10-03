@@ -11,7 +11,7 @@
 @interface PRJNewResponseViewController ()
 {
 	NSInteger responseSection;
-	NSIngeter requestSection;
+	NSInteger requestSection;
     NSArray * sections;
 }
 

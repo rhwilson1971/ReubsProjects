@@ -108,6 +108,9 @@
     [view show];
     
     view = nil;
+    
+    self.requestDetail.text = @"";
+    self.requestTitle.text = @"";
 }
 
 
