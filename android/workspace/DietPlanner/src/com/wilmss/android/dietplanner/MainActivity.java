@@ -1,4 +1,4 @@
-package com.wilmss.android.PRJ2;
+package com.wilmss.android.dietplanner;
 
 import java.util.Locale;
 
@@ -161,18 +161,16 @@ public class MainActivity extends FragmentActivity implements
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
-		{
-			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
-			
-			TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-			
-			Locale l= 
-			
-			String displayString = String.format("%s %d", Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-			dummyTextView.setText(displayString);
-			
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+					container, false);
+			TextView dummyTextView = (TextView) rootView
+					.findViewById(R.id.section_label);
+			dummyTextView.setText(Integer.toString(getArguments().getInt(
+					ARG_SECTION_NUMBER)));
 			return rootView;
 		}
 	}
+
 }
