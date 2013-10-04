@@ -8,5 +8,6 @@
     <string name="title_section3">Section 3</string>
     <string name="title_activity_edit_prayer_request">EditPrayerRequestActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="view_title">The name of this view is </string>
 
 </resources>
