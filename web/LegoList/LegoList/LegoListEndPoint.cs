@@ -22,18 +22,7 @@ namespace LegoList
         {
             this.retainedConnectionId = connectionId;
 
-            // return base.OnReceived(request, connectionId, data);
             return Connection.Broadcast(data);
-        }
-
-        void SendMessage()
-        {
-            var MyMessage = "The time is now!  " + DateTime.Now.ToShortTimeString();
-
-            if (null != Connection)
-            {
-                Connection.Broadcast(MyMessage);
-            }
         }
     }
 }

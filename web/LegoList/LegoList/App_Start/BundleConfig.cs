@@ -8,6 +8,10 @@ namespace LegoList
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // add bundle for SignalR
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                "~/Scripts/jquery.signalR-1.1.13.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

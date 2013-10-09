@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.SignalR;
 
 namespace LegoList.Controllers
 {
@@ -34,6 +35,14 @@ namespace LegoList.Controllers
             ViewBag.Message = "SignalR Test";
 
             return View();
+        }
+
+        void SendMessage()
+        {
+            var MyMessage = "The time is now!  " + DateTime.Now.ToShortTimeString();
+            var context = GlobalHost.ConnectionManager.GetConnectionContext<LegoListEndPoint>();
+
+            context.Connection.Broadcast(MyMessage);
         }
     }
 }
