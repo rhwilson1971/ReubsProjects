@@ -57,12 +57,14 @@
     if( self.prayerResponse != nil)
 	{
 		NSInteger savedDisposition=0;
+        
+        NSString *val = self.prayerResponse.disposition;
 		
-		if ( [self.prayerResponse.response compare:@"Yes"] == 0)
+		if ( [val compare:@"Yes"] == 0)
 		{
             savedDisposition=1;
         }
-        else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 )
+        else if ( [val compare:@"Waiting"] == 0 )
 		{
             savedDisposition=2;
         }
@@ -149,7 +151,11 @@
         
     NSLog(@"Save button pressed");
     
-    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved"
+                               message:@"Prayer Request Saved"
+                               delegate:self
+                               cancelButtonTitle:nil
+                               otherButtonTitles:@"OK", nil];
     
     [view show];
     
