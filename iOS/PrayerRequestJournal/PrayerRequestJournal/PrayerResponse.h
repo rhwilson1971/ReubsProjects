@@ -6,6 +6,13 @@
 //  Copyright (c) 2013 Reuben Wilson. All rights reserved.
 //
 
+typedef NS_ENUM(NSUInteger, PRJDisposition)
+{
+	PRJDispositionYes=0,
+	PRJDispositionNo,
+	PRJDispositionWaiting
+};
+
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 

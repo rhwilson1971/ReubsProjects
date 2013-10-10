@@ -13,6 +13,8 @@
 	NSInteger responseSection;
 	NSInteger requestSection;
     NSArray * sections;
+	
+	NSDictionary * responseDispositionValues = @{PRJDipositionYes : @"Yes", PRJDispositionNo : @"No", PRJDispositionWaiting : @"Waiting"};
 }
 
 @end
@@ -56,21 +58,20 @@
 {
     if( self.prayerResponse != nil)
 	{
-		NSInteger savedDisposition=0;
+		PRJDisposition savedDisposition=PRJDispositionNo;
         
         NSString *val = self.prayerResponse.disposition;
 		
-		if ( [val compare:@"Yes"] == 0)
+		if ( [val compare:@"Yes"] == kCompareValid)
 		{
-            savedDisposition=1;
+            savedDisposition==PRJDIspositionYes;
         }
-        else if ( [val compare:@"Waiting"] == 0 )
+        else if ( [val compare:@"Waiting"] == kCompareValid )
 		{
-            savedDisposition=2;
+            savedDisposition=PRJDIspositionWaiting;
         }
 		
 		[segControl setSelectedSegmentIndex:savedDisposition];
-		
     }
 }
 
@@ -86,17 +87,18 @@
     
 	if( self.prayerResponse != nil )
 	{
-        if( [self.prayerResponse.response compare:@"No"] == 0 )
+		
+        if( [self.prayerResponse.response compare:@"No"] == kCompareValid )
 		{
-            [segControl setSelectedSegmentIndex:0];
+            [segControl setSelectedSegmentIndex:PRJDispositionNo];
         }
-        else if ( [self.prayerResponse.response compare:@"Yes"] == 0)
+        else if ( [self.prayerResponse.response compare:@"Yes"] == kCompareValid)
 		{
-            [segControl setSelectedSegmentIndex:1];
+            [segControl setSelectedSegmentIndex:PRJDispositionYes];
         }
-        else if ( [self.prayerResponse.response compare:@"Waiting"] == 0 )
+        else if ( [self.prayerResponse.response compare:@"Waiting"] == kCompareValid )
 		{
-            [segControl setSelectedSegmentIndex:2];
+            [segControl setSelectedSegmentIndex:PRJDispositionWaiting];
         }
         
         responseTextView.text = self.prayerResponse.response;
@@ -127,21 +129,10 @@
     UISegmentedControl * segControl = (UISegmentedControl *)[self.view viewWithTag:kDispostionTag];
 
     response.response  = [textView text];
-    NSInteger index = [segControl selectedSegmentIndex];
+    PRJDisposition dispositionKey = (PRJDisposition)[segControl selectedSegmentIndex];
 
-    if( index == 0 )
-	{
-        response.disposition = @"Yes";
-    }
-	else if (index == 1 )
-	{
-        response.disposition = @"No";
-    }
-    else
-	{
-        response.disposition = @"Waiting";
-    }
-    
+	response.disposition = reponseDispositionValues[dispositionKey];
+	
     [moc save:&error];
 		
     if(nil != error)
@@ -358,7 +349,8 @@
 }
 
 /*
-
+   // Snippet of code used to display a next/revisous button in a segmented
+   // control drawn on the keyboard popup
 - (UIToolbar *)keyboardToolBar3 
 {
     

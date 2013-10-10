@@ -167,9 +167,9 @@ public class MainActivity extends FragmentActivity implements
 			
 			TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
 			
-			Locale l= 
+			// Locale l= 
 			
-			String displayString = String.format("%s %d", Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+			String displayString = Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)) + " Tab Pressed";
 			dummyTextView.setText(displayString);
 			
 			return rootView;

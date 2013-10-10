@@ -7,7 +7,8 @@
 //
 
 #define kDispostionTag 1301
-#define kResponseTag 1302
+#define kResponseTag   1302
+#define kCompareValid  0
 
 #import <UIKit/UIKit.h>
 #import "PrayerResponse.h"
