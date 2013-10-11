@@ -14,7 +14,7 @@
 	NSInteger requestSection;
     NSArray * sections;
 	
-	NSDictionary * responseDispositionValues = @{PRJDipositionYes : @"Yes", PRJDispositionNo : @"No", PRJDispositionWaiting : @"Waiting"};
+	NSDictionary * responseDispositionValues;
 }
 
 @end
@@ -51,6 +51,12 @@
     
     self.navigationItem.rightBarButtonItem = saveButton;
     
+    
+    responseDispositionValues =  @{
+                                   [NSNumber numberWithInteger:PRJDispositionYes] : @"Yes",
+                                   [NSNumber numberWithInteger:PRJDispositionNo] : @"No",
+                                   [NSNumber numberWithInteger:PRJDispositionWaiting] : @"Waiting"
+                                   };
     // [self loadData];
 }
 
@@ -64,11 +70,11 @@
 		
 		if ( [val compare:@"Yes"] == kCompareValid)
 		{
-            savedDisposition==PRJDIspositionYes;
+            savedDisposition=PRJDispositionYes;
         }
         else if ( [val compare:@"Waiting"] == kCompareValid )
 		{
-            savedDisposition=PRJDIspositionWaiting;
+            savedDisposition=PRJDispositionWaiting;
         }
 		
 		[segControl setSelectedSegmentIndex:savedDisposition];
@@ -131,7 +137,7 @@
     response.response  = [textView text];
     PRJDisposition dispositionKey = (PRJDisposition)[segControl selectedSegmentIndex];
 
-	response.disposition = reponseDispositionValues[dispositionKey];
+	response.disposition = responseDispositionValues[[NSNumber numberWithInteger:dispositionKey]];
 	
     [moc save:&error];
 		
@@ -161,6 +167,10 @@
 }
 
 #pragma mark - Table view data source
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{    // fixed font style. use custom view
+    return sections[section];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

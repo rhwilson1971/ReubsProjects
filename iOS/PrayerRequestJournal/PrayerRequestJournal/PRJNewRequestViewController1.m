@@ -16,7 +16,6 @@
 
 @end
 
-
 @implementation PRJNewRequestViewController1
 
 @synthesize managedObjectContext;
@@ -28,7 +27,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
 	{
-        
         // Custom initialization
         self.title = NSLocalizedString(@"New", @"New");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
@@ -44,12 +42,14 @@
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain
                                                                   target:self action:@selector(save:)];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain
-                                                                    target:self action:@selector(cancel:)];
-    self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = saveButton;
+    
+    if( self.prayerRequest == nil){
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain
+                                                                    target:self action:@selector(cancel:)];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

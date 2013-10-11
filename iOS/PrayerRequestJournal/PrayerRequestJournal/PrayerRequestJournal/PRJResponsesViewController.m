@@ -239,16 +239,21 @@
      cell.textLabel.text = prayerResponse.disposition;
      
      NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-     [formatter setDateFormat:@"yyyy"];
+     [formatter setDateFormat:@"EEE, MMM d, ''yy"];
      
      //Optionally for time zone converstions
      [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    
+     //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+     //[dateFormatter setDateFormat:@"EEE, MMM d, ''yy"];
      
-     NSString *stringFromDate = [formatter stringFromDate:prayerResponse.dateEntered];
-
-     cell.detailTextLabel.text = stringFromDate;
+     NSString *formattedDateString = [formatter stringFromDate:prayerResponse.dateEntered];
+     NSLog(@"formattedDateString: %@", formattedDateString);
+     
+     //cell.detailTextLabel.text = formattedDateString;
+     
+     cell.detailTextLabel.text = [self getMyDate:prayerResponse.dateEntered];
      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-     
  }
  
 -(void) configureRequestCell:(UITableViewCell*)cell prayerRequest:(PrayerRequest *)prayerRequest
@@ -256,16 +261,36 @@
 	cell.textLabel.text = prayerRequest.title;
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy"];
+    [formatter setDateFormat:@"EEE, MMM d, ''yy"];
     
     //Optionally for time zone converstions
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
     
     NSString *stringFromDate = [formatter stringFromDate:prayerRequest.dateRequested];
+    NSLog(@"formatted String: %@", stringFromDate);
     
-    cell.detailTextLabel.text = stringFromDate;
-
+    // cell.detailTextLabel.text = stringFromDate;
+    cell.detailTextLabel.text = [self getMyDate:prayerRequest.dateRequested];
+    
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+}
+
+-(NSString *) getMyDate:(NSDate *) myDate{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    NSLocale *frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [dateFormatter setLocale:frLocale];
+    
+    [dateFormatter setDoesRelativeDateFormatting:YES];
+    
+    //NSDate *date = [NSDate dateWithTimeIntervalSinceNow:60*60*24*3];
+    NSString *dateString = [dateFormatter stringFromDate:myDate];
+    
+    NSLog(@"dateString: %@", dateString);
+    
+    return dateString;
 }
 
 @end
