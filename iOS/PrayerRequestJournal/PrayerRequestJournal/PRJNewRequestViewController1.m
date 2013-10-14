@@ -117,10 +117,10 @@
         
         NSLog(@"Save button pressed");
     
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Request Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Prayer Response Saved" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     
         [view show];
-    
+        
         view = nil;
     }
 }

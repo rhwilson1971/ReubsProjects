@@ -77,9 +77,16 @@
 
 -(void) loadData
 {
-
+    NSSortDescriptor *dateDescriptor = [NSSortDescriptor
+                                        sortDescriptorWithKey:@"dateEntered"
+                                        ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:dateDescriptor];
+    
+    prayerResponses = [[currentPrayerRequest.responses allObjects]
+                                 sortedArrayUsingDescriptors:sortDescriptors];
+    
     // currentPrayerRequest.responses
-    prayerResponses = [currentPrayerRequest.responses allObjects];
+    // prayerResponses = [currentPrayerRequest.responses allObjects];
     
     [self.tableView reloadData];
 }
@@ -204,6 +211,7 @@
 			PRJNewRequestViewController1 *vc = [[PRJNewRequestViewController1 alloc] initWithNibName:@"PRJNewRequestViewController1" bundle:nil];
 			
 			// Pass the selected object to the new view controller.
+            vc.managedObjectContext = [self managedObjectContext];
 			vc.prayerRequest = currentPrayerRequest;
 		    
 			detailViewController = vc;
@@ -218,6 +226,7 @@
 			
 			// Pass the prayer request object to view controller
 			vc.prayerResponse = prayerResponse;
+            vc.managedObjectContext = [self managedObjectContext];
 			vc.prayerRequest = (PrayerRequest *)prayerResponse.request;
 			
 			detailViewController = vc;
