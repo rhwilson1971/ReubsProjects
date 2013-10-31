@@ -200,15 +200,20 @@
             UITextField * requestTitle = [[UITextField alloc] initWithFrame:CGRectMake(5,5,290,30)];
             
             requestTitle.keyboardType = UIKeyboardTypeDefault;
-            requestTitle.returnKeyType = UIReturnKeyNext;
+            requestTitle.returnKeyType = UIReturnKeyDefault;
+            
+            [requestTitle setInputAccessoryView:[self keyboardToolbar]];
             
             requestTitle.delegate = self;
             requestTitle.tag = kRequestTitleTag;
+            
             requestTitle.placeholder = @"prayer request description";
             requestTitle.clearButtonMode = UITextFieldViewModeWhileEditing;
-			if( nil != self.prayerRequest ) {
+			
+            if( nil != self.prayerRequest ) {
 				requestTitle.text = self.prayerRequest.title;
 			}
+            
             [cell.contentView addSubview:requestTitle];
             
         }
@@ -223,20 +228,7 @@
             requestDetails.delegate = self;
             requestDetails.tag = kRequestDetailsTag;
             
-            UIToolbar *toolbar = [[UIToolbar alloc] init];
-            [toolbar setBarStyle:UIBarStyleBlackTranslucent];
-            [toolbar sizeToFit];
-            
-            
-            NSArray *itemsArray = @[
-                                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
-                                    [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self action:@selector(goToTitleField)],
-                                    [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(goToFinishedEditing)]
-                                    ];
-            
-            [toolbar setItems:itemsArray];
-            
-            [requestDetails setInputAccessoryView:toolbar];
+            [requestDetails setInputAccessoryView:[self keyboardToolbar]];
 			
 			if( nil != self.prayerRequest ){
 				requestDetails.text = self.prayerRequest.detail;
@@ -257,6 +249,27 @@
     }
     
     return cellHeight;
+}
+
+-(UIToolbar*) keyboardToolbar{
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    //[toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    [toolbar setBarStyle:UIBarStyleDefault];
+    [toolbar sizeToFit];
+    
+    
+    NSArray *itemsArray = @[
+                            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
+                            [[UIBarButtonItem alloc] initWithTitle:@"Title" style:UIBarButtonItemStylePlain target:self action:@selector(goToTitleField)],
+                            [[UIBarButtonItem alloc] initWithTitle:@"Request" style:UIBarButtonItemStylePlain target:self action:@selector(goToTitleField)],
+                            [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(goToFinishedEditing)]
+                            ];
+    
+    [toolbar setItems:itemsArray];
+    
+    
+    return toolbar;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
