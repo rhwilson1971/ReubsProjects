@@ -9,6 +9,17 @@ namespace LegoList.Controllers
 {
     public class HomeController : Controller
     {
+
+        //[System.Web.Mvc.Authorize]
+        //public ViewResult Index()
+        //{
+        //    ViewBag.Message = "Welcome to LegoList";
+
+        //    return View();
+
+        //}
+
+        [System.Web.Mvc.Authorize]
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
