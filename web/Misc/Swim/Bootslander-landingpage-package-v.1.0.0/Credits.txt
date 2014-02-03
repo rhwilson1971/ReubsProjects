@@ -1,0 +1,69 @@
+
+Scripts:
+
+
+1. Twitter bootstrap
+	
+Link : http://twitter.github.com/bootstrap/
+	
+License :
+	
+
+
+2. jQuery v1.8.2
+	
+Link : jquery.com
+	
+License : http://jquery.org/license/
+	
+
+
+3. prettyPhoto lightbox
+	
+Link : http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/
+	
+License : prettyPhoto is totally free to use, it is released the GPLv2 http://www.gnu.org/licenses/gpl-2.0.html
+	
+
+
+4. sequence slider
+	
+Link : http://www.sequencejs.com
+	
+License : This is a FREE script and is available under a MIT 
+License:
+http://www.opensource.org/licenses/mit-license.php
+
+
+
+
+
+Icons:
+
+1. Icons
+	
+Link : from http://iconmonstr.com/
+	
+License : Free for commercial use as stated on the site
+
+
+
+Photo/Stock image 
+(used for live preview only - not included in download package)
+
+* All photos are free for commercial usage http://creativecommons.org/licenses/by-sa/2.0/
+
+* Searched by http://search.creativecommons.org
+
+
+
+http://www.fotopedia.com/items/flickr-2037438708
+http://www.flickr.com/photos/osde-info/7766488264/
+
+http://www.flickr.com/photos/ilamont/4328628491/
+
+http://www.flickr.com/photos/ourcage/8292706571/
+
+http://www.flickr.com/photos/brettlider/2848273501/
+
+http://www.flickr.com/photos/blakespot/4746399067/
