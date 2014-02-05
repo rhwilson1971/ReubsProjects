@@ -37,16 +37,9 @@ create table swim_user_profiles
     age INTEGER,
     dob DATETIME,
     PRIMARY KEY (swim_user_profile_id)
-    INDEX swim_u_ind (swim_user_id),
-    FOREIGN KEY (swim_user_id) REFERENCES swim_user(swim_user_id) ON DELETE CASCADE,
-    INDEX swim_m_ind (swim_measurement_id),
-    CONSTRAINT fk_UserMeasurement FOREIGN KEY (swim_measurement_id) REFERENCES swim_measurements(swim_measurement_id) ON DELETE CASCADE
-)ENGINE=INNODB;
+);
 
-INDEX par_ind (parent_id),
-    FOREIGN KEY (parent_id) 
-        REFERENCES parent(id)
-        ON DELETE CASCADE
+
 
 create table swim_user_goals
 (
@@ -55,8 +48,7 @@ create table swim_user_goals
     goal_weight INTEGER not null,
     date_start DATETIME not null,
     date_end DATETIME not null,
-    PRIMARY KEY (swim_user_goal_id),
-    CONSTRAINT fk_UserUserGoal FOREIGN KEY (swim_user_id) REFERENCES swim_user(swim_user_id)
+    PRIMARY KEY (swim_user_goal_id)
 );
 
 create table swim_user_audits
@@ -86,8 +78,8 @@ create table swim_exercise_journal
     swim_exercise_id INTEGER NOT NULL,
     duration integer not null,
     time_performed DATETIME NOT NULL,
-    PRIMARY KEY (swim_exercise_journal_id),
-    CONSTRAINT fk_ExercisesJournal FOREIGN KEY (swim_exercise_id) REFERENCES swim_exercises(swim_exercise_id)
+    PRIMARY KEY (swim_exercise_journal_id)
+    
 );
 
 create table swim_meals_journal
@@ -96,8 +88,7 @@ create table swim_meals_journal
     swim_meal_id INTEGER NOT NULL,
     meal_time DATETIME NOT NULL,
     calories INTEGER NOT NULL,
-    PRIMARY KEY (swim_meal_journal_id),
-    CONSTRAINT fk_MealsJournal FOREIGN KEY (swim_meal_id) REFERENCES swim_meals(swim_meal_id)
+    PRIMARY KEY (swim_meal_journal_id)
 );
 
 

@@ -1,8 +1,8 @@
 <?php 
     // header('Content-type: text/plain; charset=utf-8');
-    $db_hostname="localHost";
+    $db_hostname="localhost";
     $db_user="root";
-    $db_password="Pr@y3r$";
+    $db_password="";
 
     $db_name="swim";
     
@@ -13,7 +13,9 @@
     echo htmlentities($row['_message']);
     */
     
-    $pdo = new PDO('mysql:host=localhost;dbname=$db_name', $db_user, $db_password ) or die("error connecting to database " . mysql_error());
+    
+    
+    $pdo = new PDO('mysql:host=localhost;dbname=swim;charset=utf8', $db_user, $db_password ) or die("error connecting to database " . mysql_error());
     
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
     $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
@@ -24,10 +26,13 @@
     //$last_name=$_POST["last_name"];
     //$email=$_POST["email"];
     //$password=$_POST["password"];
-    
-    $statement = $pdo->exec("insert into swim_user(first_name, last_name, email, password) values('$first_name','$last_name','$email','$password')");
 
-    $last_id = PDO::lastInsertId();
+    
+    $results = $pdo->exec("insert into swim_user(first_name, last_name, email, password) values('$first_name','$last_name','$email','$password')");
+
+    $last_id = $pdo->lastInsertId();
+    
+    
     
     if ($last_id )
     {   
@@ -50,6 +55,10 @@
     }
     else
     {
+        echo "Results " . $results;
+        echo $first_name;
+        
+        echo "Last id " . $last_id;
         echo "<h1>Error</h1>";
         echo "were sorry but your request cannot be completed at this time";
     }
