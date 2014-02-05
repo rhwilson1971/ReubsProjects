@@ -1,6 +1,9 @@
 <?php  
-<pre>/* require the user as the parameter */
-<pre>//http://localhost:8080/sample1/webservice1.php?user=1
+//<pre>/* require the user as the parameter */
+//<pre>//http://localhost:8080/sample1/webservice1.php?user=1
+
+
+
 if(isset($_GET['user']) && intval($_GET['user'])) {
   /* soak in the passed variable or set our own */
   $number_of_posts = isset($_GET['num']) ? intval($_GET['num']) : 10; //10 is the default

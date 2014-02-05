@@ -15,23 +15,38 @@
     
     $pdo = new PDO('mysql:host=localhost;dbname=$db_name', $db_user, $db_password ) or die("error connecting to database " . mysql_error());
     
-    $first_name=$_POST["first_name"];
-    $last_name=$_POST["last_name"];
-    $email=$_POST["email"];
-    $password=$_POST["password"];
+    $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
+    $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    
+    // $first_name=$_POST["first_name"];
+    //$last_name=$_POST["last_name"];
+    //$email=$_POST["email"];
+    //$password=$_POST["password"];
     
     $statement = $pdo->exec("insert into swim_user(first_name, last_name, email, password) values('$first_name','$last_name','$email','$password')");
 
     $last_id = PDO::lastInsertId();
     
-    If ($last_id )
-    {    
+    if ($last_id )
+    {   
+        
+        $mystuf = array('swim_user_id' => $last_id);
+        
+        $json_data = json_encode($mystuff);
+        
+        echo $json_data;
+        
+        /*
         echo "<h1>Thank you</h1>";
         echo "your Information was saved";
     
 	// The value of the variable name is found
         echo "<h1>Hello 2" . $first_name . "</h1>";
         echo "<h1>LastID=" . $last_id . "</h1>";
+         
+         */
     }
     else
     {
@@ -39,4 +54,4 @@
         echo "were sorry but your request cannot be completed at this time";
     }
     // echo utf8_encode($message);
-?>
+

@@ -24,7 +24,7 @@ if(isset($_GET['swim_user']) && intval($_GET['swim_user'])) {
     //$query = "SELECT post_title, guid FROM wp_posts WHERE post_author = 
     //  $user_id AND post_status = 'publish' ORDER BY ID DESC LIMIT $number_of_posts";
     
-    $query = "SELECT * FROM `test`.`users`;";
+    //$query = "SELECT * FROM `test`.`users`;";
     $result = mysql_query($query,$link) or die('Errant query:  '.$query);
     /* create one master array of the records */
     $query = "SELECT * FROM `test`.`users`;";
