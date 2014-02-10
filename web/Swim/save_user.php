@@ -33,7 +33,6 @@
     $last_id = $pdo->lastInsertId();
     
     
-    
     if ($last_id )
     {   
         

@@ -15,6 +15,7 @@
     $password=$_POST["password"];
     
     $result= mysql_query("insert into swim_user(first_name, last_name, email, password) values('$first_name','$last_name','$email','$password')");
+    
     If ($result)
     {    
         echo "<h1>Thank you</h1>";
