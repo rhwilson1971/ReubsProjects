@@ -4,7 +4,6 @@
  */
 package com.wilmss.PrayerRequestJournal.repository;
 
-import com.wilmss.PrayerRequestJournal.domain.entities.PrayerRequestor;
 import com.wilmss.PrayerRequestJournal.domain.interfaces.IDisposition;
 import com.wilmss.PrayerRequestJournal.domain.interfaces.IPrayerRequest;
 import com.wilmss.PrayerRequestJournal.domain.interfaces.IPrayerRequestor;
@@ -44,7 +43,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
             
             org.hibernate.Transaction tx = this.session.beginTransaction();
             Query q = this.session.createQuery("from PrayerRequestor");
-            requestors = (List<IPrayerRequestor>) q.list();
+            requestors = q.list();
             
             /*
             Session session = NewHibernateUtil.getSessionFactory().openSession();
@@ -75,7 +74,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
         try {
             org.hibernate.Transaction tx = this.session.beginTransaction();
             Query q = this.session.createQuery("from PrayerRequest");
-            requests = (List<IPrayerRequest>) q.list();            
+            requests = q.list();            
         }
         catch(Exception e){
             logger.info(e.getMessage());
@@ -91,7 +90,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
         try {
             org.hibernate.Transaction tx = this.session.beginTransaction();
             Query q = this.session.createQuery("from PrayerResponse");
-            responses = (List<IPrayerResponse>) q.list(); 
+            responses = q.list(); 
         }
         catch(HibernateException ex){
             
@@ -166,7 +165,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
         try {
             org.hibernate.Transaction tx = this.session.beginTransaction();
             Query q = this.session.createQuery("from PrayerRequest as pr where pr.prayerRequestor.requestorId = " + id);
-            requests = (List<IPrayerRequest>) q.list();            
+            requests = q.list();            
         }
         catch(HibernateException he){
             logger.error(he.getMessage());
@@ -183,7 +182,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
         try {
             org.hibernate.Transaction tx = this.session.beginTransaction();
             Query q = this.session.createQuery("from PrayerResponse as pr where pr.requestId = " + id);
-            responses = (List<IPrayerResponse>) q.list();            
+            responses = q.list();            
         }
         catch(HibernateException he){
             logger.error(he.getMessage());
@@ -252,7 +251,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
         try{
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from PrayerRequestor where userName = '"+ userName + "'");
-            requestors = (List<IPrayerRequestor>)q.list();
+            requestors = q.list();
         }
         catch(HibernateException ex){
             logger.info(ex.getMessage());
@@ -273,7 +272,7 @@ public class HibernatePrayerRequestJournalRepository implements IPrayerRequestJo
         try {
             org.hibernate.Transaction tx = this.session.beginTransaction();
             Query q = this.session.createQuery("from Disposition");
-            dipos = (List<IDisposition>) q.list();            
+            dipos = q.list();            
         }
         catch(HibernateException he){
             logger.error(he.getMessage());
