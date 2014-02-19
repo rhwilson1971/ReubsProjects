@@ -1,7 +1,7 @@
 <?php 
     // header('Content-type: text/plain; charset=utf-8');
     $db_hostname="localHost";
-    $db_user="reuben";
+    $db_user="root";
     $db_password="Pr@y3r$";
 
     $db_name="swim";
@@ -15,15 +15,23 @@
     $password=$_POST["password"];
     
     $result= mysql_query("insert into swim_user(first_name, last_name, email, password) values('$first_name','$last_name','$email','$password')");
-    
     If ($result)
-    {    
+    {
+        $insert_id = mysql_insert_id();
+        
+        $mystuf = array('swim_user_id' => $insert_id);
+        
+        $json_data = json_encode($mystuff);
+        
+        echo $json_data;
+        /*        
         echo "<h1>Thank you</h1>";
         echo "your Information was saved";
     
 	// The value of the variable name is found
 	echo "<h1>Hello 1" . $_GET["first_name"] . "</h1>";
         echo "<h1>Hello 2" . $first_name . "</h1>";
+        */
     }
     else
     {
